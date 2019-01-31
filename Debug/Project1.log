@@ -1,0 +1,11 @@
+﻿  Shape.cpp
+  Rectangle.cpp
+  Circle.cpp
+  BSL.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(51): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(70): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.exe
+  Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.pdb (Partial PDB)
