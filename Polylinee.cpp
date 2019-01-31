@@ -2,7 +2,7 @@
 
 
 
-Polyline::Polyline(std::string name) :Shape()
+Polyline::Polyline(std::string name):Shape()
 {
 	Name = name;
 }

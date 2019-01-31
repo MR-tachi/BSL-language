@@ -1,8 +1,16 @@
-﻿  BSL.cpp
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(70): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(89): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(127): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(152): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(156): warning C4018: '<': signed/unsigned mismatch
+﻿  Polyline.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(22): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(24): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
+e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(26): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
+e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(35): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
+e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(37): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
+e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(39): warning C4018: '<': signed/unsigned mismatch
+  BSL.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(69): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(88): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(126): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(151): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(155): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.exe
   Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.pdb (Partial PDB)

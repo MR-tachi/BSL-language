@@ -3,9 +3,9 @@
 #include <string>
 #include "Rectangle.h"
 #include "Circle.h"
-//#include "Polyline.h"
 #include "Ellipse.h"
 #include "Line.h"
+#include "Polyline.h"
 #include "Polygon.h"
 #include <fstream>
 
@@ -43,11 +43,10 @@ void BSL::start()
 		}
 		else if (Word == "export" || Word == "EXPORT")
 		{
-			//if (width == 0 && height == 0) {}
+			if (width == 0 && height == 0) {}
 				//throw exception dont set w & h
-			cin.ignore();
-			cin.ignore();
-			getline(cin, Word,'"');
+			getline(cin, Word, '\"');
+			getline(cin, Word,'\"');
 			ExportFile(Word);
 			cin.ignore();
 		}
@@ -131,8 +130,8 @@ void BSL::CreateShape(string &type)
 		shapes.push_back(new Rectangle(name));
 	else if (type=="circle")
 		shapes.push_back(new Circle(name));
-	//else if (type == "polyline")
-		//shapes.push_back(new Polyline(name));
+	else if (type == "polyline")
+		shapes.push_back(new Polyline(name));
 	else if (type == "polygon")
 		shapes.push_back(new Polygon(name));
 	else if (type == "line")
@@ -157,14 +156,16 @@ void BSL::ExportFile(string filename)
 		output += shapes[i]->Export();
 
 	output += "\n</svg>\n";
-	
-	ofstream file ("\\Export\\"+filename);
-	if (file.is_open())
+	filename.insert(0, "Export//");
+	ofstream file(filename, ios::out);
+	if (!file)
 	{
+		cout << "";
+		//throw exception
+
+	}
+	else 		
 		file << output;
 		file.close();
-	}
-	else //throw exception
-		cout << "";
 
 }
