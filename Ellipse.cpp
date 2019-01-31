@@ -1,35 +1,29 @@
-#include "Rectangle.h"
+#include "Ellipse.h"
 
 
 
-Rectangle::Rectangle(std::string name) :Shape()
+Ellipse::Ellipse(std::string name) :Shape()
 {
 	Name = name;
 }
 
 
-Rectangle::~Rectangle()
+Ellipse::~Ellipse(){}
+
+void Ellipse::information()
 {
 }
 
-void Rectangle::information()
+std::string Ellipse::Export()
 {
-}
-
-std::string Rectangle::Export()
-{
-	std::string output = "\n  <rect x=\"";
+	std::string output = "\n  <ellipse cx=\n\"";
 	output += loc.x;
-	output += "\" y=\"";
+	output += "\" cy=\"";
 	output += loc.y;
 	output += "\" rx=\"";
 	output += r.x;
 	output += "\" ry=\"";
 	output += r.y;
-	output += "\" width=\"";
-	output += width;
-	output += "\" height=\"";
-	output += height;
 	output += "\" stroke=\"";
 	output += stroke;
 	output += "\" fill=\"";
@@ -41,6 +35,6 @@ std::string Rectangle::Export()
 	output += "\">";
 	for (short i = 0; i < Anim.size(); i++)
 		output += Anim[i]->Export();
-	output += "\n</rect>";
+	output += "\n</ellipse>";
 	return output;
 }

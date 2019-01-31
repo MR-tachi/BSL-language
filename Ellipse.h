@@ -1,14 +1,15 @@
 #pragma once
 #include "Shape.h"
-class Rectangle :
+class Ellipse :
 	public Shape
 {
 public:
-	Rectangle(std::string);
-	~Rectangle();
+	Ellipse(std::string);
+	~Ellipse();
 	void information();
 	std::string Export();
 private:
-	point loc,r;
-	short width, height;
+	point loc;
+	point r;
 };
+

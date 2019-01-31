@@ -1,14 +1,14 @@
 #pragma once
 #include "Shape.h"
-class Rectangle :
+class Polygon :
 	public Shape
 {
 public:
-	Rectangle(std::string);
-	~Rectangle();
+	Polygon(std::string);
+	~Polygon();
 	void information();
 	std::string Export();
 private:
-	point loc,r;
-	short width, height;
+	std::vector<point*> Points;
 };
+

@@ -1,11 +1,8 @@
-﻿  Shape.cpp
-  Rectangle.cpp
-  Circle.cpp
-  BSL.cpp
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(51): warning C4018: '<': signed/unsigned mismatch
+﻿  BSL.cpp
 e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(70): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(89): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(127): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(152): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(156): warning C4018: '<': signed/unsigned mismatch
   Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.exe
   Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.pdb (Partial PDB)

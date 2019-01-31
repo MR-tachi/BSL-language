@@ -9,11 +9,11 @@ public:
 	~BSL();
 	void start();
 private:
-	short width;
 	void ShowShapes();
 	void ClearShape(std::string&);
 	void ShowHelp();
-	short height;
+	void CreateShape(std::string&);
+	void ExportFile(std::string);
+	short height , width ;
 	std::vector<Shape*> shapes;
 };
-

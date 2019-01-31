@@ -111,17 +111,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="BSL.cpp" />
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="Ellipse.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shape.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="BSL.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Ellipse.h" />
+    <ClInclude Include="Line.h" />
+    <ClInclude Include="Polygon.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shape.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

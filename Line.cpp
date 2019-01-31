@@ -1,25 +1,27 @@
-#include "Circle.h"
+#include "Line.h"
 
 
 
-Circle::Circle(std::string name):Shape()
+Line::Line(std::string name) :Shape()
 {
 	Name = name;
 }
 
 
-Circle::~Circle(){}
-
-void Circle::information(){}
-
-std::string Circle::Export()
+Line::~Line()
 {
-	std::string output = "\n  <circle cx=\"";
-	output += loc.x;
-	output += "\" cy=\"";
-	output += loc.y;
-	output += "\" r=\"";
-	output += r;
+}
+
+void Line::information()
+{
+}
+
+std::string Line::Export()
+{
+	std::string output = "\n  <line x1=\"";
+	output += start.x;
+	output += "\" y1=\"";
+	output += start.y;
 	output += "\" stroke=\"";
 	output += stroke;
 	output += "\" fill=\"";
@@ -31,6 +33,6 @@ std::string Circle::Export()
 	output += "\">";
 	for (short i = 0; i < Anim.size(); i++)
 		output += Anim[i]->Export();
-	output += "\n</circle>";
+	output += "\n</line>";
 	return output;
 }

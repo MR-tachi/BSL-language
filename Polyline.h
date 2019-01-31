@@ -1,14 +1,14 @@
 #pragma once
 #include "Shape.h"
-class Rectangle :
+class Polyline :
 	public Shape
 {
 public:
-	Rectangle(std::string);
-	~Rectangle();
+	Polyline(std::string);
+	~Polyline();
 	void information();
 	std::string Export();
 private:
-	point loc,r;
-	short width, height;
+	std::vector<point*> Points;
 };
+
