@@ -1,8 +1,9 @@
 #include "Line.h"
+#include<iostream>
 
+using namespace std;
 
-
-Line::Line(std::string name) :Shape()
+Line::Line(string name) :Shape()
 {
 	Name = name;
 }
@@ -16,9 +17,9 @@ void Line::information()
 {
 }
 
-std::string Line::Export()
+string Line::Export()
 {
-	std::string output = "\n  <line x1=\"";
+	string output = "\n  <line x1=\"";
 	output += start.x;
 	output += "\" y1=\"";
 	output += start.y;
@@ -35,4 +36,43 @@ std::string Line::Export()
 		output += Anim[i]->Export();
 	output += "\n</line>";
 	return output;
+}
+
+void Line::SetOption(string name)
+{
+	string tmpname;
+	int location;
+	location = name.find('-');
+	if (location == string::npos) // chek anim or no if flase then its animate
+	{
+		string option;//count option
+		getline(cin, tmpname, '(');
+		if (tmpname != " (") {}
+			//theow except cmmand
+		getline(cin, option, ')');
+		cin >> tmpname;
+		if (tmpname != ")") {}
+			//throw excp command
+		if (name == "x1")
+			start.x = option;
+		else if (name == "y1")
+			start.y = option;
+		else if (name == "x2")
+			end.x = option;
+		else if (name == "y2")
+			end.y = option;
+		else Shape::SetOption(name, option);
+	}
+	else
+	{
+		tmpname = name.substr(0, location - 1); //anim name
+
+		if (name[location + 1] == '>')
+		{
+			Shape::SetAnim(name.substr(location + 2, std::string::npos));
+		}
+		else {}
+		//throw excp
+
+	}
 }

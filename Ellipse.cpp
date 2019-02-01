@@ -1,5 +1,5 @@
 #include "Ellipse.h"
-
+#include <iostream>
 
 
 Ellipse::Ellipse(std::string name) :Shape()
@@ -37,4 +37,43 @@ std::string Ellipse::Export()
 		output += Anim[i]->Export();
 	output += "\n</ellipse>";
 	return output;
+}
+
+void Ellipse::SetOption(std::string name)
+{
+	std::string tmpname;
+	int location;
+	location = name.find('-');
+	if (location == std::string::npos) // chek anim or no if flase then its animate
+	{
+		std::string option;//count option
+		getline(std::cin, tmpname, '(');
+		if (tmpname != " (") {}
+		//theow except cmmand
+		getline(std::cin, option, ')');
+		std::cin >> tmpname;
+		if (tmpname != ")") {}
+		//throw excp command
+		if (name == "rx")
+			r.x = option;
+		else if (name == "ry")
+			r.y = option;
+		else if (name == "cx")
+			loc.x = option;
+		else if (name == "cy")
+			loc.y = option;
+		else Shape::SetOption(name, option);
+	}
+	else
+	{
+		tmpname = name.substr(0, location - 1); //anim name
+
+		if (name[location + 1] == '>')
+		{
+			Shape::SetAnim(name.substr(location + 2, std::string::npos));
+		}
+		else {}
+		//throw excp
+
+	}
 }

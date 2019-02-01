@@ -1,6 +1,6 @@
 #pragma once
-#include <vector>
 #include "Shape.h"
+
 
 class BSL
 {
@@ -13,7 +13,9 @@ private:
 	void ClearShape(std::string&);
 	void ShowHelp();
 	void CreateShape(std::string&);
-	void ExportFile(std::string);
-	short height , width ;
+	void ExportFile(std::string&);
+	void SetOption(std::string&);
+	void ShowAnimates();
+	std::string height , width ;
 	std::vector<Shape*> shapes;
 };

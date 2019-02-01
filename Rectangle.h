@@ -8,7 +8,10 @@ public:
 	~Rectangle();
 	void information();
 	std::string Export();
+	void SetOption(std::string);
 private:
-	point loc,r;
-	short width, height;
+	point loc;
+	point r;
+	std::string width;
+	std::string height;
 };

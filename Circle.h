@@ -10,7 +10,8 @@ public:
 	~Circle();
 	void information() ;
 	std::string Export();
+	void SetOption(std::string);
 private:
 	point loc;
-	short r;
+	std::string r;
 };

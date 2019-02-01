@@ -8,7 +8,9 @@ public:
 	~Line();
 	void information();
 	std::string Export();
+	void SetOption(std::string);
 private:
-	point start, end;
+	point start;
+	point end;
 };
 

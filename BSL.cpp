@@ -13,8 +13,6 @@ using namespace std;
 
 BSL::BSL()
 {
-	width = 300; //default value
-	height = 300; //default value
 }
 
 
@@ -30,7 +28,27 @@ void BSL::start()
 		string Word;
 		cin >> Word;
 		if (Word == "list" || Word == "LIST")
-			ShowShapes();
+		{
+			if (cin.eof())
+				ShowShapes();
+			else 
+			{
+				cin >> Word;
+				if (Word == "animate")
+					ShowAnimates();
+				else {}
+					//throw excp undifined command
+			}
+		}
+		else if (Word == "set" || Word == "SET")
+		{
+			cin >> Word;
+			if (Word == "width")
+				width = Word;
+			else if (Word == "height")
+				height = Word;
+			else SetOption(Word);
+		}
 		else if (Word == "create" || Word == "CREATE")
 		{
 			cin >> Word;
@@ -43,12 +61,16 @@ void BSL::start()
 		}
 		else if (Word == "export" || Word == "EXPORT")
 		{
-			if (width == 0 && height == 0) {}
+			if (width.empty() && height.empty()) {}
 				//throw exception dont set w & h
 			getline(cin, Word, '\"');
+			if (Word != " (") {}
+				//throw exc undif command
 			getline(cin, Word,'\"');
 			ExportFile(Word);
-			cin.ignore();
+			cin >> Word;
+			if (Word != ")") {};
+				//throw excpect undifined command
 		}
 		else if (Word == "exit" || Word == "EXIT")
 		{
@@ -59,7 +81,7 @@ void BSL::start()
 		{
 			ShowHelp();
 		}
-		//theow exception
+		//theow exception undifined command
 		else cout <<endl<< Word << "\a undifend command. use \"help\" for guide\n";
 	}
 }
@@ -139,11 +161,22 @@ void BSL::CreateShape(string &type)
 	else if (type == "elipse")
 		shapes.push_back(new Ellipse(name));
 	else 
-		//throw exception
+		//throw exception udinfined shape
 		cout<< endl << type << "\a undifend type. use \"help\" for guide\n";
 }
 
-void BSL::ExportFile(string filename)
+void BSL::ShowAnimates()
+{
+	string Word;
+	cin >> Word;
+	for (short i = 0; i < shapes.size(); i++)
+		if (shapes[i]->getname() == Word)
+			shapes[i]->ShowAnimates();
+		else {}
+			//throw excp not exist
+}
+
+void BSL::ExportFile(string& filename)
 {
 	string output;
 	output += "<?xml version=\"1.0\"?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\"\n\"http://www.w3.org/Graphics/SVG/1.1DTD/svg11.dtd\">";
@@ -161,11 +194,31 @@ void BSL::ExportFile(string filename)
 	if (!file)
 	{
 		cout << "";
-		//throw exception
+		//throw exception file coudnt open
 
 	}
 	else 		
 		file << output;
 		file.close();
 
+}
+
+void BSL::SetOption(string& name)
+{
+	int loc;
+	loc = name.find('-');
+	if (loc == string::npos) {}
+		//throw excep undifined command
+	string tmpname = name.substr(0, loc-1);//shape name
+	if (name[loc + 1] != '>') {}
+		//throw excep undifined command
+	for (short i = 0; i < shapes.size() ; i++)
+	{
+		if (shapes[i]->getname() == tmpname)
+		{
+			shapes[i]->SetOption(name.substr(loc + 2, string::npos));//set shape options entered
+		}
+		else if (i == shapes.size()) {}
+				//throw excep not exist
+	}
 }

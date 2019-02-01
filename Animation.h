@@ -7,11 +7,14 @@ public:
 	Animation();
 	~Animation();
 	std::string Export();
+	std::string getname();
+	void SetOption(std::string);
 private:
+	std::string name;
 	std::string att_type;
 	std::string att_name;
-	int from;
-	int to;
+	std::string from;
+	std::string to;
 	std::string dur;
 	std::string repeat;
 };

@@ -8,6 +8,7 @@ public:
 	~Ellipse();
 	void information();
 	std::string Export();
+	void SetOption(std::string);
 private:
 	point loc;
 	point r;

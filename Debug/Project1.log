@@ -1,16 +1,30 @@
-﻿  Polyline.cpp
+﻿  Shape.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\shape.cpp(20): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\shape.cpp(51): warning C4018: '<': signed/unsigned mismatch
+  Rectangle.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\rectangle.cpp(42): warning C4018: '<': signed/unsigned mismatch
+  Polyline.cpp
 e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(22): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(24): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
-e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(26): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
-e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(35): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
-e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(37): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
 e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(39): warning C4018: '<': signed/unsigned mismatch
+  Polygon.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\polygon.cpp(22): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\polygon.cpp(39): warning C4018: '<': signed/unsigned mismatch
+  Line.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\line.cpp(35): warning C4018: '<': signed/unsigned mismatch
+  Ellipse.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\ellipse.cpp(36): warning C4018: '<': signed/unsigned mismatch
+  Circle.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\circle.cpp(32): warning C4018: '<': signed/unsigned mismatch
   BSL.cpp
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(69): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(88): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(126): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(151): warning C4244: 'argument': conversion from 'short' to 'char', possible loss of data
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(155): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(91): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(110): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(148): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(172): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(188): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(215): warning C4018: '<': signed/unsigned mismatch
+  Animation.cpp
   Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
   Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.exe
   Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.pdb (Partial PDB)

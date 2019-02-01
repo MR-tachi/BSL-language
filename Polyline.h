@@ -8,6 +8,7 @@ public:
 	~Polyline();
 	void information();
 	std::string Export();
+	void SetOption(std::string);
 private:
 	std::vector<point*> Points;
 };

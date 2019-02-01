@@ -1,5 +1,5 @@
 #include "Polyline.h"
-
+#include <iostream>
 
 
 Polyline::Polyline(std::string name) :Shape()
@@ -40,4 +40,55 @@ std::string Polyline::Export()
 		output += Anim[i]->Export();
 	output += "\n</polygon>";
 	return output;
+}
+
+void Polyline::SetOption(std::string name)
+{
+	std::string tmpname;
+	int location;
+	location = name.find('-');
+	if (location == std::string::npos) // chek anim or no if flase then its animate
+	{
+		if (name == "points")
+		{
+			bool flag = true;
+			while (flag == true)
+			{
+				point* tmp = new point;
+				getline(std::cin, tmp->x, ',');
+				getline(std::cin, tmp->y, ' ');
+				if (tmp->y.back() == ')')
+				{
+					flag = false;
+					tmp->y.pop_back();
+				}
+				Points.push_back(tmp);
+			}
+		}
+		else 
+		{
+
+		std::string option;//count option
+		getline(std::cin, tmpname, '(');
+		if (tmpname != " (") {}
+		//throw except cmmand
+		getline(std::cin, option, ')');
+		std::cin >> tmpname;
+		if (tmpname != ")") {}
+		//throw excp command
+		else Shape::SetOption(name, option);
+		}
+	}
+	else
+	{
+		tmpname = name.substr(0, location - 1); //anim name
+
+		if (name[location + 1] == '>')
+		{
+			Shape::SetAnim(name.substr(location + 2, std::string::npos));
+		}
+		else {}
+		//throw excp
+
+	}
 }
