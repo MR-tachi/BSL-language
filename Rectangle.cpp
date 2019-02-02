@@ -54,11 +54,11 @@ void Rectangle::SetOption(std::string name)
 	{
 		std::string option;//count option
 		getline(std::cin, tmpname, '(');
-		if (tmpname != " (") {}
+		if (tmpname != " ") {}
 		//theow except cmmand
 		getline(std::cin, option, ')');
-		std::cin >> tmpname;
-		if (tmpname != ")") {}
+		getline(std::cin, tmpname);
+		if (tmpname != "") {}
 		//throw excp command
 		if (name == "x")
 			loc.x = option;
@@ -76,11 +76,11 @@ void Rectangle::SetOption(std::string name)
 	}
 	else
 	{
-		tmpname = name.substr(0, location - 1); //anim name
+		tmpname = name.substr(0, location); //anim name
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name.substr(location + 2, std::string::npos));
+			Shape::SetAnim(name);// .substr(location + 2, std::string::npos));
 		}
 		else {}
 		//throw excp

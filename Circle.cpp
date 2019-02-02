@@ -44,11 +44,11 @@ void Circle::SetOption(std::string name)
 	{
 		std::string option;//count option
 		getline(std::cin, tmpname, '(');
-		if (tmpname != " (") {}
+		if (tmpname != " ") {}
 		//theow except cmmand
 		getline(std::cin, option, ')');
-		std::cin >> tmpname;
-		if (tmpname != ")") {}
+		getline(std::cin, tmpname);
+		if (tmpname != "") {}
 		//throw excp command
 		if (name == "r")
 			r = option;

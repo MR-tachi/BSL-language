@@ -12,6 +12,7 @@ public:
 	virtual std::string Export() = 0;
 	std::string getname();
 	void ShowAnimates();
+	void CreateAnimate(std::string);
 	virtual void SetOption(std::string) = 0;
 protected:
 	std::string Name;

@@ -49,35 +49,40 @@ void Polyline::SetOption(std::string name)
 	location = name.find('-');
 	if (location == std::string::npos) // chek anim or no if flase then its animate
 	{
-		if (name == "points")
-		{
-			bool flag = true;
-			while (flag == true)
-			{
-				point* tmp = new point;
-				getline(std::cin, tmp->x, ',');
-				getline(std::cin, tmp->y, ' ');
-				if (tmp->y.back() == ')')
-				{
-					flag = false;
-					tmp->y.pop_back();
-				}
-				Points.push_back(tmp);
-			}
-		}
-		else 
-		{
-
-		std::string option;//count option
 		getline(std::cin, tmpname, '(');
-		if (tmpname != " (") {}
+		if (tmpname != " ") {}
 		//throw except cmmand
-		getline(std::cin, option, ')');
-		std::cin >> tmpname;
-		if (tmpname != ")") {}
-		//throw excp command
-		else Shape::SetOption(name, option);
-		}
+			std::string option;//count option
+			getline(std::cin, option, ')');
+			getline(std::cin, tmpname);
+			if (tmpname != "") {}
+			//throw excp command
+			if (name == "points")
+			{
+
+
+
+
+
+				/*bool flag = true;
+				while (flag == true)
+				{
+					point* tmp = new point;
+					getline(std::cin, tmp->x, ',');
+					getline(std::cin, tmp->y, ' ');
+					if (tmp->y.back() == ')')
+					{
+						flag = false;
+						tmp->y.pop_back();
+					}
+					Points.push_back(tmp);
+				}*/
+			}
+		//else
+		//{
+
+			else Shape::SetOption(name, option);
+		//}
 	}
 	else
 	{

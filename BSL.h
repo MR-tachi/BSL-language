@@ -13,6 +13,7 @@ private:
 	void ClearShape(std::string&);
 	void ShowHelp();
 	void CreateShape(std::string&);
+	void CreateAnimate(std::string&);
 	void ExportFile(std::string&);
 	void SetOption(std::string&);
 	void ShowAnimates();

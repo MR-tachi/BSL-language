@@ -70,11 +70,11 @@ void Polygon::SetOption(std::string name)
 
 			std::string option;//count option
 			getline(std::cin, tmpname, '(');
-			if (tmpname != " (") {}
+			if (tmpname != " ") {}
 			//throw except cmmand
 			getline(std::cin, option, ')');
-			std::cin >> tmpname;
-			if (tmpname != ")") {}
+			getline(std::cin, tmpname);
+			if (tmpname != "") {}
 			//throw excp command
 			else Shape::SetOption(name, option);
 		}

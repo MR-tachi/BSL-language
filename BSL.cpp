@@ -40,13 +40,28 @@ void BSL::start()
 					//throw excp undifined command
 			}
 		}
+		else if (Word == "animation" || Word == "ANIMATION")
+		{
+			cin >> Word;
+			CreateAnimate(Word);
+		}
 		else if (Word == "set" || Word == "SET")
 		{
 			cin >> Word;
-			if (Word == "width")
-				width = Word;
-			else if (Word == "height")
-				height = Word;
+			if (Word == "width" || Word == "height")
+			{
+				string count;
+				getline(cin,count,'(');
+				if (count != " ") {}
+					//throw exc undif command
+				getline(cin, count, ')');
+				if (count == "") {}
+					//throw excpect undifined command
+				if (Word == "width")
+					width = count;
+				else if (Word == "height")
+					height = count;	
+			}
 			else SetOption(Word);
 		}
 		else if (Word == "create" || Word == "CREATE")
@@ -75,7 +90,8 @@ void BSL::start()
 		else if (Word == "exit" || Word == "EXIT")
 		{
 			cout << "\n\nProgram has Ended\n";
-			break;
+			_getchar_nolock();
+			exit(0);
 		}
 		else if (Word == "help" || Word == "HELP")
 		{
@@ -165,6 +181,20 @@ void BSL::CreateShape(string &type)
 		cout<< endl << type << "\a undifend type. use \"help\" for guide\n";
 }
 
+void BSL::CreateAnimate(std::string &shape)
+{
+	string name;
+	cin >> name;
+	for (short i = 0; i < shapes.size(); i++)
+		if (shape == shapes[i]->getname())
+		{
+			shapes[i]->CreateAnimate(name);
+		}
+		else if (i == shapes.size()) {}
+		//throw excep not exist
+		
+}
+
 void BSL::ShowAnimates()
 {
 	string Word;
@@ -209,7 +239,7 @@ void BSL::SetOption(string& name)
 	loc = name.find('-');
 	if (loc == string::npos) {}
 		//throw excep undifined command
-	string tmpname = name.substr(0, loc-1);//shape name
+	string tmpname = name.substr(0, loc);//shape name
 	if (name[loc + 1] != '>') {}
 		//throw excep undifined command
 	for (short i = 0; i < shapes.size() ; i++)

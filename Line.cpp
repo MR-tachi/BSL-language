@@ -47,11 +47,11 @@ void Line::SetOption(string name)
 	{
 		string option;//count option
 		getline(cin, tmpname, '(');
-		if (tmpname != " (") {}
+		if (tmpname != " ") {}
 			//theow except cmmand
 		getline(cin, option, ')');
-		cin >> tmpname;
-		if (tmpname != ")") {}
+		getline(std::cin, tmpname);
+		if (tmpname != "") {}
 			//throw excp command
 		if (name == "x1")
 			start.x = option;

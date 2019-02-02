@@ -3,8 +3,9 @@
 
 using namespace std;
 
-Animation::Animation()
+Animation::Animation(string name)
 {
+	Name = name;
 }
 
 
@@ -16,15 +17,15 @@ string Animation::Export()
 {
 	std::string output = "\n    <animate attributeType=\""; 
 	output += att_type;
-	output += "\" attributeName = \"";
+	output += "\" attributeName=\"";
 	output += att_name;
-	output += "\" from = \"";
+	output += "\" from=\"";
 	output += from;
-	output += "\" to = \"";
+	output += "\" to=\"";
 	output += to;
-	output += "\"\n\tdur = \"";
+	output += "\"\n\tdur=\"";
 	output += dur;
-	output += "\" repeatCount = \"";
+	output += "\" repeatCount=\"";
 	output += repeat;
 	output += "\"/>";
 	return output;
@@ -32,7 +33,7 @@ string Animation::Export()
 
 string Animation::getname()
 {
-	return name;
+	return Name;
 }
 
 void Animation::SetOption(string option)
@@ -40,23 +41,23 @@ void Animation::SetOption(string option)
 	string count;//count option
 	string tmp;//for check commands
 	getline(std::cin, tmp, '(');
-	if (tmp != " (") {}
+	if (tmp != " ") {}
 	//theow except cmmand
 	getline(std::cin, count, ')');
-	cin >> tmp;
-	if (tmp != ")") {}
+	getline(std::cin, tmp);
+	if (tmp != "") {}
 	//throw excp command
 	if (option == "dur")
 		dur = count;
-	else if (option == "att_type")
+	else if (option == "attributeType")
 		att_type = count;
-	else if (option == "att_name")
+	else if (option == "attributeName")
 		att_name = count;
 	else if (option == "from")
 		from = count;
 	else if (option == "to")
 		to = count;
-	else if (option == "repeat")
+	else if (option == "repeatCount")
 		repeat = count;
 	else {}
 		//throw exp command

@@ -25,6 +25,14 @@ void Shape::ShowAnimates()
 	}
 }
 
+void Shape::CreateAnimate(string name)
+{
+	for(short i=0;i<Anim.size();i++)
+		if (name == Anim[i]->getname()) {}
+			//throw excp repeatly name
+	Anim.push_back(new Animation(name));
+}
+
 void Shape::SetOption(string name, string option)
 {
 	if (name == "stroke_width")
@@ -45,9 +53,9 @@ void Shape::SetAnim(string animoption)
 	loc = animoption.find('-');
 	if (loc == string::npos) {}
 		//throw excp command
-	if (animoption[loc + 1] != '>') {}
+	if (animoption[loc+1] != '>') {}
 		//throw excp command
-	string animname = animoption.substr(0, loc - 1);
+	string animname = animoption.substr(0, loc);
 	for (short i = 0; i < Anim.size(); i++)
 	{
 		if (Anim[i]->getname() == animname)

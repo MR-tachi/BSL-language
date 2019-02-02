@@ -4,13 +4,13 @@
 class Animation
 {
 public:
-	Animation();
+	Animation(std::string);
 	~Animation();
 	std::string Export();
 	std::string getname();
 	void SetOption(std::string);
 private:
-	std::string name;
+	std::string Name;
 	std::string att_type;
 	std::string att_name;
 	std::string from;
