@@ -16,6 +16,8 @@ private:
 	void CreateAnimate(std::string&);
 	void ExportFile(std::string&);
 	void SetOption(std::string&);
+	void GetOption(std::string&);
+	void SetAll(std::string&);
 	void ShowAnimates();
 	std::string height , width ;
 	std::vector<Shape*> shapes;

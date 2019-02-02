@@ -89,10 +89,14 @@ void Polygon::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name.substr(location + 2, std::string::npos));
+			Shape::SetAnim(name);// .substr(location + 2, std::string::npos));
 		}
 		else {}
 		//throw excp
 
 	}
+}
+
+void Polygon::GetOption(std::string)
+{
 }

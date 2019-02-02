@@ -68,6 +68,7 @@ void Shape::SetOption(string name, string option)
 		//throw excep command
 }
 
+
 void Shape::SetAnim(string animoption)
 {
 	int loc;
@@ -86,4 +87,18 @@ void Shape::SetAnim(string animoption)
 		{}
 		//throw excp not exist
 	}
+}
+
+void Shape::GetOption(std::string name, std::string option)
+{
+	if (name == "stroke_width")
+		std::cout << std::endl << stroke_width;
+	else if (name == "opacity")
+		std::cout << std::endl << opacity;
+	else if (name == "stroke")
+		std::cout << std::endl << stroke;
+	else if (name == "fill")
+		std::cout << std::endl << fill;
+	else {}
+	//throw excep command
 }

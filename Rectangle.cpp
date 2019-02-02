@@ -14,7 +14,7 @@ Rectangle::~Rectangle()
 
 void Rectangle::information()
 {
-	std::cout << "name: " << Name << "  type:  Line\n";
+	std::cout << "name: " << Name << "  type:  Rectangle\n";
 }
 
 std::string Rectangle::Export()
@@ -88,3 +88,11 @@ void Rectangle::SetOption(std::string name)
 
 	}
 }
+
+void Rectangle::GetOption(std::string)
+{
+}
+
+//void Rectangle::SetAll(std::string type, std::string option)
+//{
+//}

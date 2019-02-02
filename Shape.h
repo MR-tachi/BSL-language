@@ -14,7 +14,9 @@ public:
 	void ShowAnimates();
 	void CreateAnimate(std::string);
 	virtual void SetOption(std::string) = 0;
+	virtual void GetOption(std::string) = 0;
 	void ClearAnim(std::string);
+	void SetOption(std::string, std::string);
 protected:
 	std::string Name;
 	std::string stroke_width;
@@ -22,7 +24,7 @@ protected:
 	std::string stroke;
 	std::string fill;
 	std::vector<Animation*> Anim;
-	void SetOption(std::string, std::string);
+	void GetOption(std::string, std::string);
 	void SetAnim(std::string);
 };
 

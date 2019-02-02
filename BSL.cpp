@@ -8,6 +8,7 @@
 #include "Polyline.h"
 #include "Polygon.h"
 #include "Text.h"
+#include "Plot.h"
 #include <fstream>
 
 using namespace std;
@@ -46,6 +47,11 @@ void BSL::start()
 		{
 			cin >> Word;
 			CreateAnimate(Word);
+		}
+		else if (Word == "setAll")
+		{
+			cin >> Word;
+			SetAll(Word);
 		}
 		else if (Word == "set" || Word == "SET")
 		{
@@ -88,6 +94,11 @@ void BSL::start()
 			cin >> Word;
 			if (Word != ")") {};
 				//throw excpect undifined command
+		}
+		else if (Word == "get" || Word == "GET")
+		{
+			cin >> Word;
+			GetOption(Word);
 		}
 		else if (Word == "exit" || Word == "EXIT")
 		{
@@ -203,6 +214,8 @@ void BSL::CreateShape(string &type)
 		shapes.push_back(new Ellipse(name));
 	else if (type == "text")
 		shapes.push_back(new Text(name));
+	else if (type == "plot")
+		shapes.push_back(new Plot(name));
 	else 
 		//throw exception udinfined shape
 		cout<< endl << type << "\a undifend type. use \"help\" for guide\n";
@@ -280,3 +293,39 @@ void BSL::SetOption(string& name)
 				//throw excep not exist
 	}
 }
+
+void BSL::GetOption(std::string & name)
+{
+	int loc;
+	loc = name.find('-');
+	if (loc == string::npos) {}
+	//throw excep undifined command
+	string tmpname = name.substr(0, loc);//shape name
+	if (name[loc + 1] != '>') {}
+	//throw excep undifined command
+	for (short i = 0; i < shapes.size(); i++)
+	{
+		if (shapes[i]->getname() == tmpname)
+		{
+			shapes[i]->GetOption(name.substr(loc + 2, string::npos));//set shape options entered
+		}
+		else if (i == shapes.size()) {}
+		//throw excep not exist
+	}
+}
+
+void BSL::SetAll(std::string &type)
+{
+	std::string tmpname;
+	std::string option;//count option
+	getline(std::cin, tmpname, '(');
+	if (tmpname != " ") {}
+	//theow except cmmand
+	getline(std::cin, option, ')');
+	getline(std::cin, tmpname);
+	if (tmpname != "") {}
+	//throw excp command
+	for(short i=0;i<shapes.size();i++)
+	shapes[i]->SetOption(type, option);//set option to all shapes
+}
+

@@ -1,51 +1,35 @@
-#include "Text.h"
-#include<iostream>
+#include "Plot.h"
+#include <iostream>
 
 using namespace std;
 
-
-
-Text::Text(std::string name)
+Plot::Plot(std::string name)
 {
 	Name = name;
 }
-
-Text::~Text()
+Plot::~Plot()
 {
 }
 
-void Text::information()
+void Plot::information()
 {
 	std::cout << "name: " << Name << "  type:  Text\n";
 }
 
-std::string Text::Export()
+std::string Plot::Export()
 {
-	string output = "\n  <text x=\"";
-	output += loc.x;
-	output += "\" y=\"";
-	output += loc.y;
-	output += "\" font-size=\"";
-	output += size;
-	output += "\" font-family=\"";
-	output += font;
-	output += "\" stroke=\"";
-	output += stroke;
-	output += "\" fill=\"";
-	output += fill;
-	output += "\" stroke_width=\"";
-	output += stroke_width;
-	output += "\" opacity=\"";
-	output += opacity;
-	output += "\">";
-	for (short i = 0; i < Anim.size(); i++)
-		output += Anim[i]->Export();
-	output += text;
-	output += "\n</text>";
-	return output;
+	//open data file and read from file
+
+	//check type plot
+
+	//create a plot in svg 
+
+	//export svg
+
+	return std::string();
 }
 
-void Text::SetOption(std::string name)
+void Plot::SetOption(std::string name)
 {
 	string tmpname;
 	int location;
@@ -64,12 +48,12 @@ void Text::SetOption(std::string name)
 			loc.x = option;
 		else if (name == "y")
 			loc.y = option;
-		else if (name == "font-size")
-			size = option;
-		else if (name == "font-family")
-			font = option;
-		else if (name == "text")
-			text = option;
+		else if (name == "data")
+			data = option;
+		else if (name == "title")
+			title = option;
+		else if (name == "type")
+			type = option;
 		else Shape::SetOption(name, option);
 	}
 	else
@@ -86,7 +70,7 @@ void Text::SetOption(std::string name)
 	}
 }
 
-void Text::GetOption(std::string name)
+void Plot::GetOption(std::string name)
 {
 	string tmpname;
 	int location;
@@ -102,15 +86,15 @@ void Text::GetOption(std::string name)
 		if (tmpname != "") {}
 		//throw excp command
 		if (name == "x")
-			loc.x = option;
+			std::cout << std::endl << loc.x;
 		else if (name == "y")
-			loc.y = option;
-		else if (name == "font-size")
-			size = option;
-		else if (name == "font-family")
-			font = option;
-		else if (name == "text")
-			text = option;
+			std::cout << std::endl << loc.y;
+		else if (name == "data")
+			std::cout << std::endl << data;
+		else if (name == "title")
+			std::cout << std::endl << title;
+		else if (name == "type")
+			std::cout << std::endl << type;
 		else Shape::SetOption(name, option);
 	}
 	else
