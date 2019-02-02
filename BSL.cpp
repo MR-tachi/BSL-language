@@ -7,6 +7,7 @@
 #include "Line.h"
 #include "Polyline.h"
 #include "Polygon.h"
+#include "Text.h"
 #include <fstream>
 
 using namespace std;
@@ -29,7 +30,8 @@ void BSL::start()
 		cin >> Word;
 		if (Word == "list" || Word == "LIST")
 		{
-			if (cin.eof())
+			getline(cin, Word ,'\n');
+			if (Word=="")
 				ShowShapes();
 			else 
 			{
@@ -105,11 +107,13 @@ void BSL::start()
 void BSL::ShowShapes()
 {
 	for (short i = 0; i < shapes.size(); i++)
+		if(shapes[i])
 		shapes[i]->information();
 }
 
-void BSL::ClearShape(string & Word)
+void BSL::ClearShape(string &Word)
 {
+
 	if (Word == "all" || Word == "ALL")
 	{
 		while (!shapes.empty())
@@ -121,19 +125,40 @@ void BSL::ClearShape(string & Word)
 			shapes.pop_back();
 		}
 	}
-	else
+	else 
 	{
-		for (short i = 0; i < shapes.size(); i++)
-			if (shapes[i]->getname() == Word)
+		std::string tmpname;
+		int location;
+		location = Word.find('-');
+		if (location == std::string::npos) // chek anim or no if flase then its animate
+		{
+			for (short i = 0; i < shapes.size(); i++)
+				if (shapes[i]->getname() == Word)
+				{
+					Shape * tmp = shapes[i];
+					cout << "shape " << tmp->getname() << " removed.\n";
+					delete tmp;
+					tmp = nullptr;
+					break;
+					if (i == shapes.size() - 1)
+						cout << "\nerror!! :" << Word << " not found.\n";
+				}
+		}
+		else
+		{
+			tmpname = Word.substr(0, location); //anim name
+			string animname = Word.substr(location + 2, string::npos);
+			if (Word[location + 1] == '>')
 			{
-				Shape * tmp = shapes[i];
-				cout << "shape " << tmp->getname() << " removed.\n";
-				delete tmp;
-				tmp = nullptr;
-				break;
-				if (i == shapes.size() - 1)
-					cout << "\nerror!! :" << Word << " not found.\n";
+				for (short i = 0; i < shapes.size(); i++)
+					if(shapes[i]->getname() == tmpname)
+						shapes[i]->ClearAnim(animname);
 			}
+			else {}
+			//throw excp command
+
+		}
+		
 	}
 
 }
@@ -176,6 +201,8 @@ void BSL::CreateShape(string &type)
 		shapes.push_back(new Line(name));
 	else if (type == "elipse")
 		shapes.push_back(new Ellipse(name));
+	else if (type == "text")
+		shapes.push_back(new Text(name));
 	else 
 		//throw exception udinfined shape
 		cout<< endl << type << "\a undifend type. use \"help\" for guide\n";
@@ -201,7 +228,8 @@ void BSL::ShowAnimates()
 	cin >> Word;
 	for (short i = 0; i < shapes.size(); i++)
 		if (shapes[i]->getname() == Word)
-			shapes[i]->ShowAnimates();
+			if (shapes[i])
+				shapes[i]->ShowAnimates();
 		else {}
 			//throw excp not exist
 }

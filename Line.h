@@ -13,4 +13,3 @@ private:
 	point start;
 	point end;
 };
-

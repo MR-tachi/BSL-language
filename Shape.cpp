@@ -19,11 +19,14 @@ void Shape::ShowAnimates()
 {
 	cout << "   " << Name << " animates:\n     ";
 	for (short i = 0; i < Anim.size(); i++)
-	{
-		std::cout << Anim[i]->getname();
-		if (i != Anim.size() - 1)
-			cout << "\n     ";
-	}
+		if (Anim[i])
+		{
+			std::cout << Anim[i]->getname();
+			if (i != Anim.size() - 1)
+				cout << "\n     ";
+		}
+		else if (i == Anim.size()) {}
+			//throw excp not exist
 }
 
 void Shape::CreateAnimate(string name)
@@ -32,6 +35,23 @@ void Shape::CreateAnimate(string name)
 		if (name == Anim[i]->getname()) {}
 			//throw excp repeatly name
 	Anim.push_back(new Animation(name));
+}
+
+void Shape::ClearAnim(std::string animname)
+{
+	for (short i=0;i< Anim.size(); i++)
+	{
+		if (animname == Anim[i]->getname())
+		{
+			Animation* tmp = Anim[i];
+			cout << "animation " << tmp->getname() << " removed.\n";
+			delete tmp;
+			tmp = nullptr;
+		}
+		else if(i == Anim.size()){}
+			//throw excp not exist
+		
+	}
 }
 
 void Shape::SetOption(string name, string option)

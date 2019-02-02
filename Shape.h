@@ -14,6 +14,7 @@ public:
 	void ShowAnimates();
 	void CreateAnimate(std::string);
 	virtual void SetOption(std::string) = 0;
+	void ClearAnim(std::string);
 protected:
 	std::string Name;
 	std::string stroke_width;
