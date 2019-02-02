@@ -14,19 +14,21 @@ Polygon::~Polygon()
 
 void Polygon::information()
 {
+	std::cout << "name: " << Name << "  type:  Polygon\n";
 }
 
 std::string Polygon::Export()
 {
 	std::string output = "\n  <polygon points=\"";
-	for (short i = 0; i < Points.size(); i++)
+	output += Points;
+	/*for (short i = 0; i < Points.size(); i++)
 	{
 		output += Points[i]->x;
 		output += ",";
 		output += Points[i]->y;
 		if (i != Points.size() - 1)
 			output += " ";
-	}
+	}*/
 	output += "\" stroke=\"";
 	output += stroke;
 	output += "\" fill=\"";
@@ -49,9 +51,19 @@ void Polygon::SetOption(std::string name)
 	location = name.find('-');
 	if (location == std::string::npos) // chek anim or no if flase then its animate
 	{
+			std::string option;//count option
+			getline(std::cin, tmpname, '(');
+			if (tmpname != " ") {}
+			//throw except cmmand
+			getline(std::cin, option, ')');
+			getline(std::cin, tmpname);
+			if (tmpname != "") {}
+			//throw excp command
 		if (name == "points")
 		{
-			bool flag = true;
+			Points = option;
+
+			/*bool flag = true;
 			while (flag == true)
 			{
 				point* tmp = new point;
@@ -63,21 +75,13 @@ void Polygon::SetOption(std::string name)
 					tmp->y.pop_back();
 				}
 				Points.push_back(tmp);
-			}
+			}*/
 		}
-		else
-		{
+		//else
+		//{
 
-			std::string option;//count option
-			getline(std::cin, tmpname, '(');
-			if (tmpname != " ") {}
-			//throw except cmmand
-			getline(std::cin, option, ')');
-			getline(std::cin, tmpname);
-			if (tmpname != "") {}
-			//throw excp command
 			else Shape::SetOption(name, option);
-		}
+		//}
 	}
 	else
 	{

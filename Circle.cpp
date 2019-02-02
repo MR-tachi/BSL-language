@@ -10,7 +10,11 @@ Circle::Circle(std::string name):Shape()
 
 Circle::~Circle(){}
 
-void Circle::information(){}
+void Circle::information()
+{
+	std::cout << "name: " << Name << "  type:  Circle\n";
+
+}
 
 std::string Circle::Export()
 {

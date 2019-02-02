@@ -10,6 +10,6 @@ public:
 	std::string Export();
 	void SetOption(std::string);
 private:
-	std::vector<point*> Points;
+	std::string Points;
 };
 

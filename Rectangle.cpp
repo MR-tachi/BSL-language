@@ -14,6 +14,7 @@ Rectangle::~Rectangle()
 
 void Rectangle::information()
 {
+	std::cout << "name: " << Name << "  type:  Line\n";
 }
 
 std::string Rectangle::Export()

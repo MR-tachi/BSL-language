@@ -15,6 +15,7 @@ Line::~Line()
 
 void Line::information()
 {
+	std::cout << "name: " << Name << "  type:  Line\n";
 }
 
 string Line::Export()

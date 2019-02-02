@@ -9,6 +9,7 @@ Shape::Shape()
 
 Shape::~Shape(){}
 
+
 string Shape::getname()
 {
 	return Name;

@@ -14,19 +14,21 @@ Polyline::~Polyline()
 
 void Polyline::information()
 {
+	std::cout << "name: " << Name << "  type:  Polyline\n";
 }
 
 std::string Polyline::Export()
 {
 	std::string output = "\n  <polygon points=\"";
-	for (short i = 0; i < Points.size(); i++)
+	output += Points;
+	/*for (short i = 0; i < Points.size(); i++)
 	{
 		output += Points[i]->x;
 		output += ",";
 		output += Points[i]->y;
 		if (i != Points.size() - 1)
 			output += " ";
-	}
+	}*/
 	output += "\" stroke=\"";
 	output += stroke;
 	output += "\" fill=\"";
@@ -59,7 +61,7 @@ void Polyline::SetOption(std::string name)
 			//throw excp command
 			if (name == "points")
 			{
-
+				Points = option;
 
 
 
