@@ -19,7 +19,7 @@ void Polyline::information()
 
 std::string Polyline::Export()
 {
-	std::string output = "\n  <polygon points=\"";
+	std::string output = "\n  <polyline points=\"";
 	output += Points;
 	/*for (short i = 0; i < Points.size(); i++)
 	{
@@ -40,7 +40,7 @@ std::string Polyline::Export()
 	output += "\">";
 	for (short i = 0; i < Anim.size(); i++)
 		output += Anim[i]->Export();
-	output += "\n</polygon>";
+	output += "\n</polyline>";
 	return output;
 }
 

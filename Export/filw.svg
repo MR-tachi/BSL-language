@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<svg width="200" height="200" viewBox="0 0 300 300"
+    xmlns="http://www.w3.org/2000/svg" version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <!-- Draw the outline of the motion path in grey, along
+       with 2 small circles at key points -->
+  <path d="M10,110 A120,120 -45 20,20 110 10 A120,120 20  0 0,20 10,130"
+      stroke="lightgrey" stroke-width="2" 
+      fill="none" id="theMotionPath"/>
+  <circle cx="10" cy="110" r="3" fill="lightgrey"  />
+  <circle cx="110" cy="10" r="3" fill="lightgrey"  />
+
+  <!-- Red circle which will be moved along the motion path. -->
+  <circle cx="" cy="" r="10" fill="red">
+
+    <!-- Define the motion path animation -->
+    <animateMotion dur="2s" repeatCount="indefinite">
+      <mpath xlink:href="#theMotionPath"/>
+    </animateMotion>
+  </circle>
+</svg>

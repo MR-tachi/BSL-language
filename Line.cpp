@@ -24,6 +24,10 @@ string Line::Export()
 	output += start.x;
 	output += "\" y1=\"";
 	output += start.y;
+	output += "\" x2=\"";
+	output += end.y;
+	output += "\" y2=\"";
+	output += end.y;
 	output += "\" stroke=\"";
 	output += stroke;
 	output += "\" fill=\"";

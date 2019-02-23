@@ -254,6 +254,7 @@ void BSL::ExportFile(string& filename)
 	output += "\n<svg width = \"";
 	output += width;
 	output += "\" height = \"";
+	output += height;
 	output += "\" version = \"1.1\"\n\txmlns = \"http://www.w3.org/2000/svg\">";
 
 	for (short i = 0; i < shapes.size(); i++)

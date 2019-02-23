@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1DTD/svg11.dtd">
+<svg width = "500" height = "500" version = "1.1"
+	xmlns = "http://www.w3.org/2000/svg">
+  <rect x="50" y="50" rx="" ry="" width="50" height="50" stroke="black" fill="gold" stroke_width="20" opacity="50">
+    <animate attributeType="XML" attributeName="x" from="-50" to="100"
+	dur="2s" repeatCount="indefinite"/>
+</rect>
+  <polyline points="100,100 150,25 150,75 200,0 " stroke="red" fill="none" stroke_width="50" opacity="100">
+    <animate attributeType="XML" attributeName="opacity" from="0" to="1"
+	dur="2s" repeatCount=""/>
+</polyline>
+  <line x1="50" y1="75" x2="30" y2="30" stroke="black" fill="gold" stroke_width="2" opacity="">
+</line>
+</svg>
