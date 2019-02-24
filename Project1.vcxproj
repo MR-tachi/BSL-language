@@ -135,6 +135,7 @@
     <ClInclude Include="Polyline.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="SVGEXCEPT.h" />
     <ClInclude Include="Text.h" />
   </ItemGroup>
   <ItemGroup>

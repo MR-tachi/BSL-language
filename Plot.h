@@ -1,5 +1,10 @@
 #pragma once
 #include "Shape.h"
+#include "Rectangle.h"
+#include "Line.h"
+#include "Polyline.h"
+#include "Text.h"
+
 class Plot :
 	public Shape
 {

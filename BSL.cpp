@@ -9,6 +9,7 @@
 #include "Polygon.h"
 #include "Text.h"
 #include "Plot.h"
+#include "SVGEXCEPT.h"
 #include <fstream>
 
 using namespace std;
@@ -29,89 +30,14 @@ void BSL::start()
 		cout << "\n> ";
 		string Word;
 		cin >> Word;
-		if (Word == "list" || Word == "LIST")
+		try 
 		{
-			getline(cin, Word ,'\n');
-			if (Word=="")
-				ShowShapes();
-			else 
-			{
-				cin >> Word;
-				if (Word == "animate")
-					ShowAnimates();
-				else {}
-					//throw excp undifined command
-			}
+			checkcommand(Word);
 		}
-		else if (Word == "animation" || Word == "ANIMATION")
+		catch (exception & exc)
 		{
-			cin >> Word;
-			CreateAnimate(Word);
+			cerr << endl << "\a Exception Throwed !!!  : " << exc.what() << endl;
 		}
-		else if (Word == "setAll")
-		{
-			cin >> Word;
-			SetAll(Word);
-		}
-		else if (Word == "set" || Word == "SET")
-		{
-			cin >> Word;
-			if (Word == "width" || Word == "height")
-			{
-				string count;
-				getline(cin,count,'(');
-				if (count != " ") {}
-					//throw exc undif command
-				getline(cin, count, ')');
-				if (count == "") {}
-					//throw excpect undifined command
-				if (Word == "width")
-					width = count;
-				else if (Word == "height")
-					height = count;	
-			}
-			else SetOption(Word);
-		}
-		else if (Word == "create" || Word == "CREATE")
-		{
-			cin >> Word;
-			CreateShape(Word);
-		}
-		else if (Word == "clear" || Word == "CLEAR")
-		{
-			cin >> Word;
-			ClearShape(Word);
-		}
-		else if (Word == "export" || Word == "EXPORT")
-		{
-			if (width.empty() && height.empty()) {}
-				//throw exception dont set w & h
-			getline(cin, Word, '\"');
-			if (Word != " (") {}
-				//throw exc undif command
-			getline(cin, Word,'\"');
-			ExportFile(Word);
-			cin >> Word;
-			if (Word != ")") {};
-				//throw excpect undifined command
-		}
-		else if (Word == "get" || Word == "GET")
-		{
-			cin >> Word;
-			GetOption(Word);
-		}
-		else if (Word == "exit" || Word == "EXIT")
-		{
-			cout << "\n\nProgram has Ended\n";
-			_getchar_nolock();
-			exit(0);
-		}
-		else if (Word == "help" || Word == "HELP")
-		{
-			ShowHelp();
-		}
-		//theow exception undifined command
-		else cout <<endl<< Word << "\a undifend command. use \"help\" for guide\n";
 	}
 }
 
@@ -165,8 +91,7 @@ void BSL::ClearShape(string &Word)
 					if(shapes[i]->getname() == tmpname)
 						shapes[i]->ClearAnim(animname);
 			}
-			else {}
-			//throw excp command
+			else throw undefined_command();
 
 		}
 		
@@ -189,7 +114,7 @@ void BSL::ShowHelp()
 	cout << "\n   > clear \"shape-name\"->\"animation-name\"\t\tclear the animation";
 	cout << "\n   > list animate \"shape-name\"\t\t\t\tshow all animations of shape\n\n";
 	cout << "---------------------------------------------------------------------------------------------------------";
-	cout << "\n\n  Shape types:\n\tcircle - rectangle - ellipse - line - polygon - polyline\n\n";
+	cout << "\n\n  Shape types:\n\tcircle - rectangle - ellipse - line - polygon - polyline - plot - text\n\n";
 	cout << "---------------------------------------------------------------------------------------------------------";
 }
 
@@ -197,12 +122,12 @@ void BSL::CreateShape(string &type)
 {
 	string name;
 	cin >> name;
-	for (short i = 0; i < shapes.size() ; i++ )
-		if (name == shapes[i]->getname()) {}
-		//throw exception reapeatly name
+	for (short i = 0; i < shapes.size(); i++)
+		if (name == shapes[i]->getname())
+			throw repeatly_name();
 	if (type == "rectangle")
 		shapes.push_back(new Rectangle(name));
-	else if (type=="circle")
+	else if (type == "circle")
 		shapes.push_back(new Circle(name));
 	else if (type == "polyline")
 		shapes.push_back(new Polyline(name));
@@ -216,9 +141,8 @@ void BSL::CreateShape(string &type)
 		shapes.push_back(new Text(name));
 	else if (type == "plot")
 		shapes.push_back(new Plot(name));
-	else 
-		//throw exception udinfined shape
-		cout<< endl << type << "\a undifend type. use \"help\" for guide\n";
+	else
+		throw undefined_shape();
 }
 
 void BSL::CreateAnimate(std::string &shape)
@@ -230,8 +154,8 @@ void BSL::CreateAnimate(std::string &shape)
 		{
 			shapes[i]->CreateAnimate(name);
 		}
-		else if (i == shapes.size()) {}
-		//throw excep not exist
+		else if (i == shapes.size())
+			throw shape_notexist();
 		
 }
 
@@ -243,8 +167,94 @@ void BSL::ShowAnimates()
 		if (shapes[i]->getname() == Word)
 			if (shapes[i])
 				shapes[i]->ShowAnimates();
-		else {}
-			//throw excp not exist
+			else
+				throw shape_notexist();
+}
+
+void BSL::checkcommand(std::string Word)
+{
+	if (Word == "list" || Word == "LIST")
+	{
+		getline(cin, Word, '\n');
+		if (Word == "")
+			ShowShapes();
+		else
+		{
+			cin >> Word;
+			if (Word == "animate")
+				ShowAnimates();
+			else throw undefined_command();
+		}
+	}
+	else if (Word == "animation" || Word == "ANIMATION")
+	{
+		cin >> Word;
+		CreateAnimate(Word);
+	}
+	else if (Word == "setAll")
+	{
+		cin >> Word;
+		SetAll(Word);
+	}
+	else if (Word == "set" || Word == "SET")
+	{
+		cin >> Word;
+		if (Word == "width" || Word == "height")
+		{
+			string count;
+			getline(cin, count, '(');
+			if (count != " ") 
+				throw undefined_command();
+			getline(cin, count, ')');
+			if (count == "") 
+				throw undefined_command();
+			if (Word == "width")
+				width = count;
+			else if (Word == "height")
+				height = count;
+		}
+		else SetOption(Word);
+	}
+	else if (Word == "create" || Word == "CREATE")
+	{
+		cin >> Word;
+		CreateShape(Word);
+	}
+	else if (Word == "clear" || Word == "CLEAR")
+	{
+		cin >> Word;
+		ClearShape(Word);
+	}
+	else if (Word == "export" || Word == "EXPORT")
+	{
+		if (width.empty() && height.empty())
+			throw set_frame();
+		getline(cin, Word, '\"');
+		if (Word != " (") 
+			throw undefined_command();
+		getline(cin, Word, '\"');
+		ExportFile(Word);
+		cin >> Word;
+		if (Word != ")") 
+			throw undefined_command();
+	}
+	else if (Word == "get" || Word == "GET")
+	{
+		cin >> Word;
+		GetOption(Word);
+	}
+	else if (Word == "exit" || Word == "EXIT")
+	{
+		cout << "\n\nProgram has Ended\n";
+		_getchar_nolock();
+		exit(0);
+	}
+	else if (Word == "help" || Word == "HELP")
+	{
+		ShowHelp();
+	}
+	else 
+		throw undefined_command();
 }
 
 void BSL::ExportFile(string& filename)
@@ -266,7 +276,7 @@ void BSL::ExportFile(string& filename)
 	if (!file)
 	{
 		cout << "";
-		//throw exception file coudnt open
+		throw file_opening();
 
 	}
 	else 		
@@ -279,19 +289,19 @@ void BSL::SetOption(string& name)
 {
 	int loc;
 	loc = name.find('-');
-	if (loc == string::npos) {}
-		//throw excep undifined command
+	if (loc == string::npos) 
+		throw undefined_command();
 	string tmpname = name.substr(0, loc);//shape name
-	if (name[loc + 1] != '>') {}
-		//throw excep undifined command
+	if (name[loc + 1] != '>') 
+		throw undefined_command();
 	for (short i = 0; i < shapes.size() ; i++)
 	{
 		if (shapes[i]->getname() == tmpname)
 		{
 			shapes[i]->SetOption(name.substr(loc + 2, string::npos));//set shape options entered
 		}
-		else if (i == shapes.size()) {}
-				//throw excep not exist
+		else if (i == shapes.size())
+			throw shape_notexist();
 	}
 }
 
@@ -299,19 +309,20 @@ void BSL::GetOption(std::string & name)
 {
 	int loc;
 	loc = name.find('-');
-	if (loc == string::npos) {}
-	//throw excep undifined command
+	if (loc == string::npos) 
+		throw undefined_command();
+
 	string tmpname = name.substr(0, loc);//shape name
-	if (name[loc + 1] != '>') {}
-	//throw excep undifined command
+	if (name[loc + 1] != '>') 
+		throw undefined_command();
 	for (short i = 0; i < shapes.size(); i++)
 	{
 		if (shapes[i]->getname() == tmpname)
 		{
 			shapes[i]->GetOption(name.substr(loc + 2, string::npos));//set shape options entered
 		}
-		else if (i == shapes.size()) {}
-		//throw excep not exist
+		else if (i == shapes.size())
+			throw shape_notexist();
 	}
 }
 
@@ -320,13 +331,12 @@ void BSL::SetAll(std::string &type)
 	std::string tmpname;
 	std::string option;//count option
 	getline(std::cin, tmpname, '(');
-	if (tmpname != " ") {}
-	//theow except cmmand
+	if (tmpname != " ") 
+		throw undefined_command();
 	getline(std::cin, option, ')');
 	getline(std::cin, tmpname);
-	if (tmpname != "") {}
-	//throw excp command
+	if (tmpname != "") 
+		throw undefined_command();
 	for(short i=0;i<shapes.size();i++)
 	shapes[i]->SetOption(type, option);//set option to all shapes
 }
-

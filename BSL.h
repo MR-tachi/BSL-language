@@ -21,4 +21,5 @@ private:
 	void ShowAnimates();
 	std::string height , width ;
 	std::vector<Shape*> shapes;
+	void checkcommand(std::string);
 };

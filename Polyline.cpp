@@ -1,6 +1,6 @@
 #include "Polyline.h"
 #include <iostream>
-
+#include "SVGEXCEPT.h"
 
 Polyline::Polyline(std::string name) :Shape()
 {
@@ -21,14 +21,6 @@ std::string Polyline::Export()
 {
 	std::string output = "\n  <polyline points=\"";
 	output += Points;
-	/*for (short i = 0; i < Points.size(); i++)
-	{
-		output += Points[i]->x;
-		output += ",";
-		output += Points[i]->y;
-		if (i != Points.size() - 1)
-			output += " ";
-	}*/
 	output += "\" stroke=\"";
 	output += stroke;
 	output += "\" fill=\"";
@@ -52,39 +44,16 @@ void Polyline::SetOption(std::string name)
 	if (location == std::string::npos) // chek anim or no if flase then its animate
 	{
 		getline(std::cin, tmpname, '(');
-		if (tmpname != " ") {}
-		//throw except cmmand
+		if (tmpname != " ")
+			throw undefined_command();
 			std::string option;//count option
 			getline(std::cin, option, ')');
 			getline(std::cin, tmpname);
-			if (tmpname != "") {}
-			//throw excp command
+			if (tmpname != "")
+				throw undefined_command();
 			if (name == "points")
-			{
 				Points = option;
-
-
-
-
-				/*bool flag = true;
-				while (flag == true)
-				{
-					point* tmp = new point;
-					getline(std::cin, tmp->x, ',');
-					getline(std::cin, tmp->y, ' ');
-					if (tmp->y.back() == ')')
-					{
-						flag = false;
-						tmp->y.pop_back();
-					}
-					Points.push_back(tmp);
-				}*/
-			}
-		//else
-		//{
-
 			else Shape::SetOption(name, option);
-		//}
 	}
 	else
 	{
@@ -92,10 +61,10 @@ void Polyline::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);// .substr(location + 2, std::string::npos));
+			Shape::SetAnim(name);
 		}
-		else {}
-		//throw excp
+		else
+			throw undefined_command();
 
 	}
 }

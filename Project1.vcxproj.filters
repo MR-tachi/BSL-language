@@ -86,6 +86,9 @@
     <ClInclude Include="Plot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SVGEXCEPT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

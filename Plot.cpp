@@ -1,6 +1,7 @@
 #include "Plot.h"
 #include <iostream>
-
+#include <fstream>
+#include "SVGEXCEPT.h"
 using namespace std;
 
 Plot::Plot(std::string name)
@@ -13,12 +14,13 @@ Plot::~Plot()
 
 void Plot::information()
 {
-	std::cout << "name: " << Name << "  type:  Text\n";
+	std::cout << "name: " << Name << "  type:  Plot\n";
 }
 
 std::string Plot::Export()
 {
 	//open data file and read from file
+	ifstream input;
 
 	//check type plot
 
@@ -34,40 +36,27 @@ void Plot::SetOption(std::string name)
 	string tmpname;
 	int location;
 	location = name.find('-');
-	if (location == string::npos) // chek anim or no if flase then its animate
-	{
-		string option;//count option
-		getline(cin, tmpname, '(');
-		if (tmpname != " ") {}
-		//theow except cmmand
-		getline(cin, option, ')');
-		getline(std::cin, tmpname);
-		if (tmpname != "") {}
-		//throw excp command
-		if (name == "x")
-			loc.x = option;
-		else if (name == "y")
-			loc.y = option;
-		else if (name == "data")
-			data = option;
-		else if (name == "title")
-			title = option;
-		else if (name == "type")
-			type = option;
-		else Shape::SetOption(name, option);
-	}
+	string option;//count option
+	getline(cin, tmpname, '(');
+	if (tmpname != " ")
+		throw undefined_command();
+	getline(cin, option, ')');
+	getline(std::cin, tmpname);
+	if (tmpname != "")
+		throw undefined_command();
+	if (name == "x")
+		loc.x = option;
+	else if (name == "y")
+		loc.y = option;
+	else if (name == "data")
+		data = option;
+	else if (name == "title")
+		title = option;
+	else if (name == "type")
+		type = option;
 	else
-	{
-		tmpname = name.substr(0, location - 1); //anim name
+		throw undefined_command();
 
-		if (name[location + 1] == '>')
-		{
-			Shape::SetAnim(name.substr(location + 2, std::string::npos));
-		}
-		else {}
-		//throw excp
-
-	}
 }
 
 void Plot::GetOption(std::string name)
@@ -79,12 +68,12 @@ void Plot::GetOption(std::string name)
 	{
 		string option;//count option
 		getline(cin, tmpname, '(');
-		if (tmpname != " ") {}
-		//theow except cmmand
+		if (tmpname != " ")
+			throw undefined_command();
 		getline(cin, option, ')');
 		getline(std::cin, tmpname);
-		if (tmpname != "") {}
-		//throw excp command
+		if (tmpname != "")
+			throw undefined_command();
 		if (name == "x")
 			std::cout << std::endl << loc.x;
 		else if (name == "y")
@@ -95,18 +84,7 @@ void Plot::GetOption(std::string name)
 			std::cout << std::endl << title;
 		else if (name == "type")
 			std::cout << std::endl << type;
-		else Shape::SetOption(name, option);
-	}
-	else
-	{
-		tmpname = name.substr(0, location - 1); //anim name
-
-		if (name[location + 1] == '>')
-		{
-			Shape::SetAnim(name);// .substr(location + 2, std::string::npos));
-		}
-		else {}
-		//throw excp
-
+		else
+			throw undefined_command();
 	}
 }
