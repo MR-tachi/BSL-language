@@ -1,13 +1,29 @@
-﻿  BSL.cpp
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(54): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(81): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(100): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(135): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(162): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(176): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(305): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(332): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(353): warning C4018: '<': signed/unsigned mismatch
-e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(375): warning C4018: '<': signed/unsigned mismatch
+﻿  Text.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\text.cpp(41): warning C4018: '<': signed/unsigned mismatch
+  Rectangle.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\rectangle.cpp(44): warning C4018: '<': signed/unsigned mismatch
+  Polyline.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\polyline.cpp(35): warning C4018: '<': signed/unsigned mismatch
+  Polygon.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\polygon.cpp(35): warning C4018: '<': signed/unsigned mismatch
+  Plot.cpp
+  Line.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\line.cpp(42): warning C4018: '<': signed/unsigned mismatch
+  Ellipse.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\ellipse.cpp(39): warning C4018: '<': signed/unsigned mismatch
+  Circle.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\circle.cpp(37): warning C4018: '<': signed/unsigned mismatch
+  BSL.cpp
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(57): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(84): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(103): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(138): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(165): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(179): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(309): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(336): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(357): warning C4018: '<': signed/unsigned mismatch
+e:\tamrinuni\finalprojectpishrafte\project1\bsl.cpp(379): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.exe
   Project1.vcxproj -> E:\TamrinUni\FinalProjectPishrafte\Debug\Project1.pdb (Partial PDB)

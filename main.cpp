@@ -16,7 +16,7 @@ int main()
 	cout << "\n\t  #+#    #+# #+#    #+# #+#             #+#        #+#     #+# #+#   #+#+# #+#    #+# #+#    #+# #+#     #+# #+#    #+# #+#        ";
 	cout << "\n\t  #########   ########  ##########      ########## ###     ### ###    ####  ########   ########  ###     ###  ########  ########## ";
 	setcolor(15);
-	cout << "\n\n\n\n\n\t\tchoose font color\n\t\t\t\t";
+	cout << "\n\n\n\n\n\t\tyou can change color in program with \"option\" command\n\t\tchoose font color\n\t\t\t\t";
 	for (int i = 0; i < 16; i++)
 	{
 		setcolor(i);

@@ -19,7 +19,7 @@ string Shape::getname()
 
 void Shape::ShowAnimates()
 {
-	cout << "   " << Name << " animates:\n     ";
+	cout << "   " << Name << " Animates:\n     ";
 	for (short i = 0; i < Anim.size(); i++)
 		if (Anim[i])
 		{
@@ -46,7 +46,7 @@ void Shape::ClearAnim(std::string animname)
 		if (animname == Anim[i]->getname())
 		{
 			Animation* tmp = Anim[i];
-			cout << "animation " << tmp->getname() << " removed.\n";
+			cout << " Animation " << tmp->getname() << " removed.\n";
 			delete tmp;
 			tmp = nullptr;
 		}

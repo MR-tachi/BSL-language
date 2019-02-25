@@ -31,6 +31,7 @@ BSL::~BSL()
 void BSL::start()
 {
 	option(bck, font);
+	system("cls");
 	while (true)
 	{
 		setcolor((bck * 16) + font);
@@ -44,15 +45,17 @@ void BSL::start()
 		catch (exception & exc)
 		{
 			setcolor((bck * 16) + font + 1);
-			cerr << endl << "\a PROBLEM !! : " << exc.what() << endl;
+			cerr << endl << "\a PROBLEM!! :" << exc.what() << endl;
 		}
 	}
 }
 
 void BSL::ShowShapes()
 {
+	setcolor((bck * 16) + font - 1);
+	cout << endl;
 	for (short i = 0; i < shapes.size(); i++)
-		if(shapes[i])
+		if (shapes[i] != nullptr)
 		shapes[i]->information();
 }
 
@@ -65,7 +68,7 @@ void BSL::ClearShape(string &Word)
 		{
 			Shape * tmp = shapes.at(shapes.size() - 1);
 			setcolor((bck * 16) + font - 1);
-			cout << " Shape " << tmp->getname() << " removed.\n";
+			cout << "\n Shape " << tmp->getname() << " removed.\n";
 			delete tmp;
 			tmp = nullptr;
 			shapes.pop_back();
@@ -83,9 +86,9 @@ void BSL::ClearShape(string &Word)
 				{
 					Shape * tmp = shapes[i];
 					setcolor((bck * 16) + font - 1);
-					cout << " Shape " << tmp->getname() << " removed.\n";
+					cout << "\n Shape " << tmp->getname() << " removed.\n";
 					delete tmp;
-					tmp = nullptr;
+					shapes[i] = nullptr;
 					break;
 				}
 				else if(i == shapes.size() - 1)
@@ -185,6 +188,7 @@ void BSL::checkcommand(std::string Word)
 {
 	if (Word == "list" || Word == "LIST")
 	{
+		setcolor((bck * 16) + font - 1);
 		getline(cin, Word, '\n');
 		if (Word == "")
 			ShowShapes();

@@ -13,7 +13,7 @@ Circle::~Circle(){}
 
 void Circle::information()
 {
-	std::cout << "name: " << Name << "  type:  Circle\n";
+	std::cout << " Name: " << Name << "  Type:  Circle\n";
 
 }
 

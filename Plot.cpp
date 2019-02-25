@@ -15,7 +15,7 @@ Plot::~Plot()
 
 void Plot::information()
 {
-	std::cout << "name: " << Name << "  type:  Plot\n";
+	std::cout << " Name: " << Name << "  Type:  Plot\n";
 }
 
 std::string Plot::Export()

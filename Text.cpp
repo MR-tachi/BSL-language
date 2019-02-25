@@ -16,7 +16,7 @@ Text::~Text()
 
 void Text::information()
 {
-	std::cout << "name: " << Name << "  type:  Text\n";
+	std::cout << " Name: " << Name << "  Type:  Text\n";
 }
 
 std::string Text::Export()

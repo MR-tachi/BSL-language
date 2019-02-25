@@ -16,7 +16,7 @@ Polyline::~Polyline()
 
 void Polyline::information()
 {
-	std::cout << "name: " << Name << "  type:  Polyline\n";
+	std::cout << " Name: " << Name << "  Type:  Polyline\n";
 }
 
 std::string Polyline::Export()

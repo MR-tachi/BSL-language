@@ -14,7 +14,7 @@ Ellipse::~Ellipse(){}
 
 void Ellipse::information()
 {
-std::cout << "name: " << Name << "  type:  Ellipse\n";
+std::cout << "Name: " << Name << "  Type:  Ellipse\n";
 }
 
 std::string Ellipse::Export()

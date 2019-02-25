@@ -16,7 +16,7 @@ Polygon::~Polygon()
 
 void Polygon::information()
 {
-	std::cout << "name: " << Name << "  type:  Polygon\n";
+	std::cout << " Name: " << Name << "  Type:  Polygon\n";
 }
 
 std::string Polygon::Export()
