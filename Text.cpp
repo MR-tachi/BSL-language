@@ -45,7 +45,7 @@ std::string Text::Export()
 	return output;
 }
 
-void Text::SetOption(std::string name)
+void Text::SetOption(istream &input, string &name)
 {
 	string tmpname;
 	int location;
@@ -53,12 +53,14 @@ void Text::SetOption(std::string name)
 	if (location == string::npos) // chek anim or no if flase then its animate
 	{
 		string option;//count option
-		getline(cin, tmpname, '(');
-		if (tmpname != " ") {}
+		getline(input, tmpname, '(');
+		if (tmpname != " ")
+			throw undefined_command();
 		//theow except cmmand
-		getline(cin, option, ')');
-		getline(std::cin, tmpname);
-		if (tmpname != "") {}
+		getline(input, option, ')');
+		getline(input, tmpname);
+		if (tmpname != "")
+			throw undefined_command();
 		//throw excp command
 		if (name == "x")
 			loc.x = option;
@@ -78,7 +80,7 @@ void Text::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name.substr(location + 2, std::string::npos));
+			Shape::SetAnim(input,name.substr(location + 2, std::string::npos));
 		}
 		else 
 			throw undefined_command();
@@ -89,7 +91,7 @@ void Text::SetOption(std::string name)
 
 void Text::GetOption(std::string name)
 {
-	string tmpname;
+	/*string tmpname;
 	int location;
 	location = name.find('-');
 	if (location == string::npos) // chek anim or no if flase then its animate
@@ -122,11 +124,12 @@ void Text::GetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);
+			Shape::SetAnim(input,name);
 		}
 		else 
 			throw undefined_command();
 		//throw excp
 
 	}
+		*/
 }

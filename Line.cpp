@@ -45,7 +45,7 @@ string Line::Export()
 	return output;
 }
 
-void Line::SetOption(string name)
+void Line::SetOption(istream &input,string &name)
 {
 	string tmpname;
 	int location;
@@ -53,11 +53,11 @@ void Line::SetOption(string name)
 	if (location == string::npos) // chek anim or no if flase then its animate
 	{
 		string option;//count option
-		getline(cin, tmpname, '(');
+		getline(input, tmpname, '(');
 		if (tmpname != " ") 
 			throw undefined_command();
-		getline(cin, option, ')');
-		getline(std::cin, tmpname);
+		getline(input, option, ')');
+		getline(input, tmpname);
 		if (tmpname != "") 
 			throw undefined_command();
 		if (name == "x1")
@@ -76,7 +76,7 @@ void Line::SetOption(string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);
+			Shape::SetAnim(input,name);
 		}
 		else
 			throw undefined_command();

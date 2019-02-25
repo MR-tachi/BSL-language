@@ -37,15 +37,15 @@ string Animation::getname()
 	return Name;
 }
 
-void Animation::SetOption(string option)
+void Animation::SetOption(istream &input,string &option)
 {
 	string count;//count option
 	string tmp;//for check commands
-	getline(std::cin, tmp, '(');
+	getline(input, tmp, '(');
 	if (tmp != " ") 
 		throw undefined_command();
-	getline(std::cin, count, ')');
-	getline(std::cin, tmp);
+	getline(input, count, ')');
+	getline(input, tmp);
 	if (tmp != "") 
 		throw undefined_command();
 	if (option == "dur")

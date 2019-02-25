@@ -2,6 +2,7 @@
 #include <iostream>
 #include "SVGEXCEPT.h"
 
+using namespace std;
 using namespace SVG;
 
 Polygon::Polygon(std::string name):Shape()
@@ -38,7 +39,7 @@ std::string Polygon::Export()
 	return output;
 }
 
-void Polygon::SetOption(std::string name)
+void Polygon::SetOption(istream &input, string &name)
 {
 	std::string tmpname;
 	int location;
@@ -46,12 +47,12 @@ void Polygon::SetOption(std::string name)
 	if (location == std::string::npos) // chek anim or no if flase then its animate
 	{
 		std::string option;//count option
-		getline(std::cin, tmpname, '(');
+		getline(input, tmpname, '(');
 		if (tmpname != " ") 
 			throw undefined_command();
 		//throw except cmmand
-		getline(std::cin, option, ')');
-		getline(std::cin, tmpname);
+		getline(input, option, ')');
+		getline(input, tmpname);
 		if (tmpname != "") 
 			throw undefined_command();
 		//throw excp command
@@ -65,7 +66,7 @@ void Polygon::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);
+			Shape::SetAnim(input,name);
 		}
 		else 
 			throw undefined_command();

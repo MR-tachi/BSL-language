@@ -11,7 +11,7 @@ public:
 	~Text();
 	void information();
 	std::string Export();
-	void SetOption(std::string);
+	void SetOption(std::istream&, std::string&);
 	void GetOption(std::string);
 
 private:

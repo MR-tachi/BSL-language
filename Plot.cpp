@@ -32,17 +32,17 @@ std::string Plot::Export()
 	return std::string();
 }
 
-void Plot::SetOption(std::string name)
+void Plot::SetOption(istream &input, string &name)
 {
 	string tmpname;
 	int location;
 	location = name.find('-');
 	string option;//count option
-	getline(cin, tmpname, '(');
+	getline(input, tmpname, '(');
 	if (tmpname != " ")
 		throw undefined_command();
-	getline(cin, option, ')');
-	getline(std::cin, tmpname);
+	getline(input, option, ')');
+	getline(input, tmpname);
 	if (tmpname != "")
 		throw undefined_command();
 	if (name == "x")

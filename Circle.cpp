@@ -2,7 +2,9 @@
 #include <iostream>
 #include "SVGEXCEPT.h"
 
+using namespace std;
 using namespace SVG;
+
 Circle::Circle(std::string name):Shape()
 {
 	Name = name;
@@ -40,7 +42,7 @@ std::string Circle::Export()
 	return output;
 }
 
-void Circle::SetOption(std::string name)
+void Circle::SetOption(istream &input, string &name)
 {
 	std::string tmpname;
 	int location;
@@ -48,12 +50,12 @@ void Circle::SetOption(std::string name)
 	if (location == std::string::npos) // chek anim or no if flase then its animate
 	{
 		std::string option;//count option
-		getline(std::cin, tmpname, '(');
+		getline(input, tmpname, '(');
 		if (tmpname != " ") 
 			throw undefined_command();
 		//theow except cmmand
-		getline(std::cin, option, ')');
-		getline(std::cin, tmpname);
+		getline(input, option, ')');
+		getline(input, tmpname);
 		if (tmpname != "") 
 			throw undefined_command();
 		//throw excp command
@@ -71,7 +73,7 @@ void Circle::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);		}
+			Shape::SetAnim(input,name);		}
 		else 
 			throw undefined_command();
 		//throw excp
@@ -81,7 +83,7 @@ void Circle::SetOption(std::string name)
 
 void Circle::GetOption(std::string name)
 {
-	std::string tmpname;
+	/*std::string tmpname;
 	int location;
 	location = name.find('-');
 	if (location == std::string::npos) // chek anim or no if flase then its animate
@@ -114,6 +116,7 @@ void Circle::GetOption(std::string name)
 		}
 		else 
 			throw undefined_command();
+			
 
-	}
+	}*/
 }

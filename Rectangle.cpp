@@ -47,7 +47,7 @@ std::string Rectangle::Export()
 	return output;
 }
 
-void Rectangle::SetOption(std::string name)
+void Rectangle::SetOption(std::istream &input , std::string & name)
 {
 	std::string tmpname;
 	int location;
@@ -55,11 +55,11 @@ void Rectangle::SetOption(std::string name)
 	if (location == std::string::npos) // chek anim or no if flase then its animate
 	{
 		std::string option;//count option
-		getline(std::cin, tmpname, '(');
+		getline(input, tmpname, '(');
 		if (tmpname != " ") 
 			throw undefined_command();
-		getline(std::cin, option, ')');
-		getline(std::cin, tmpname);
+		getline(input, option, ')');
+		getline(input, tmpname);
 		if (tmpname != "") 
 			throw undefined_command();
 		if (name == "x")
@@ -82,7 +82,7 @@ void Rectangle::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);
+			Shape::SetAnim(input,name);
 		}
 		else 
 			throw undefined_command();

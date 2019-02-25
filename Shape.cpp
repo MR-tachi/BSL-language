@@ -35,7 +35,7 @@ void Shape::CreateAnimate(string name)
 {
 	for(short i=0;i<Anim.size();i++)
 		if (name == Anim[i]->getname()) 
-			throw undefined_command();
+			throw repeatly_name();
 	Anim.push_back(new Animation(name));
 }
 
@@ -71,7 +71,7 @@ void Shape::SetOption(string name, string option)
 }
 
 
-void Shape::SetAnim(string animoption)
+void Shape::SetAnim(istream & input,string &animoption)
 {
 	int loc;
 	loc = animoption.find('-');
@@ -84,7 +84,7 @@ void Shape::SetAnim(string animoption)
 	{
 		if (Anim[i]->getname() == animname)
 		{
-			Anim[i]->SetOption(animoption.substr(loc + 2, std::string::npos));
+			Anim[i]->SetOption(input,animoption.substr(loc + 2, std::string::npos));
 		}
 		else if (i == Anim.size() - 1)
 			throw shape_notexist();

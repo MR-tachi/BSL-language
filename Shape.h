@@ -16,7 +16,7 @@ public:
 	std::string getname();
 	void ShowAnimates();
 	void CreateAnimate(std::string);
-	virtual void SetOption(std::string) = 0;
+	virtual void SetOption(std::istream&,std::string&) = 0;
 	virtual void GetOption(std::string) = 0;
 	void ClearAnim(std::string);
 	void SetOption(std::string, std::string);
@@ -28,7 +28,7 @@ protected:
 	std::string fill;
 	std::vector<Animation*> Anim;
 	void GetOption(std::string, std::string);
-	void SetAnim(std::string);
+	void SetAnim(std::istream&,std::string&);
 };
 
 struct point

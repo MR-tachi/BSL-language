@@ -13,17 +13,18 @@ private:
 	void ShowShapes();
 	void ClearShape(std::string&);
 	void ShowHelp();
-	void CreateShape(std::string&);
-	void CreateAnimate(std::string&);
+	void CreateShape(std::istream &,std::string&);
+	void CreateAnimate(std::istream &,std::string&);
 	void ExportFile(std::string&);
-	void SetOption(std::string&);
+	void SetOption(std::istream&,std::string&);
 	void GetOption(std::string&);
-	void SetAll(std::string&);
-	void ShowAnimates();
+	void SetAll(std::istream &, std::string&);
+	void ShowAnimates(std::istream &);
+	void Loadfile();
 	std::string height , width ;
 	std::vector<Shape*> shapes;
 	short bck, font;
-	void checkcommand(std::string);
+	void checkcommand(std::istream &,std::string);
 	void option(short, short);
 };
 

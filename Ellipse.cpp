@@ -2,6 +2,7 @@
 #include <iostream>
 #include "SVGEXCEPT.h"
 
+using namespace std;
 using namespace SVG;
 
 Ellipse::Ellipse(std::string name) :Shape()
@@ -42,7 +43,7 @@ std::string Ellipse::Export()
 	return output;
 }
 
-void Ellipse::SetOption(std::string name)
+void Ellipse::SetOption(istream &input, string &name)
 {
 	std::string tmpname;
 	int location;
@@ -50,12 +51,12 @@ void Ellipse::SetOption(std::string name)
 	if (location == std::string::npos) // chek anim or no if flase then its animate
 	{
 		std::string option;//count option
-		getline(std::cin, tmpname, '(');
+		getline(input, tmpname, '(');
 		if (tmpname != " ")
 			throw undefined_command();
 		//theow except cmmand
-		getline(std::cin, option, ')');
-		getline(std::cin, tmpname);
+		getline(input, option, ')');
+		getline(input, tmpname);
 		if (tmpname != "") 
 			throw undefined_command();
 		//throw excp command
@@ -75,7 +76,7 @@ void Ellipse::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);
+			Shape::SetAnim(input,name);
 		}
 		else 
 			throw undefined_command();

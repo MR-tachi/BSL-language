@@ -11,7 +11,7 @@ public:
 	~Animation();
 	std::string Export();
 	std::string getname();
-	void SetOption(std::string);
+	void SetOption(std::istream &, std::string&);
 private:
 	std::string Name;
 	std::string att_type;

@@ -2,6 +2,7 @@
 #include <iostream>
 #include "SVGEXCEPT.h"
 
+using namespace std;
 using namespace SVG;
 
 Polyline::Polyline(std::string name) :Shape()
@@ -38,19 +39,19 @@ std::string Polyline::Export()
 	return output;
 }
 
-void Polyline::SetOption(std::string name)
+void Polyline::SetOption(istream &input, string &name)
 {
 	std::string tmpname;
 	int location;
 	location = name.find('-');
 	if (location == std::string::npos) // chek anim or no if flase then its animate
 	{
-		getline(std::cin, tmpname, '(');
+		getline(input, tmpname, '(');
 		if (tmpname != " ")
 			throw undefined_command();
 			std::string option;//count option
-			getline(std::cin, option, ')');
-			getline(std::cin, tmpname);
+			getline(input, option, ')');
+			getline(input, tmpname);
 			if (tmpname != "")
 				throw undefined_command();
 			if (name == "points")
@@ -63,7 +64,7 @@ void Polyline::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);
+			Shape::SetAnim(input,name);
 		}
 		else
 			throw undefined_command();
