@@ -1,6 +1,7 @@
 #include "Rectangle.h"
 #include<iostream>
 #include "SVGEXCEPT.h"
+using namespace SVG;
 
 Rectangle::Rectangle(std::string name) :Shape()
 {

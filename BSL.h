@@ -1,11 +1,12 @@
 #pragma once
 #include "Shape.h"
 
+namespace SVG {
 
 class BSL
 {
 public:
-	BSL();
+	BSL(short, short);
 	~BSL();
 	void start();
 private:
@@ -21,5 +22,10 @@ private:
 	void ShowAnimates();
 	std::string height , width ;
 	std::vector<Shape*> shapes;
+	short bck, font;
 	void checkcommand(std::string);
+	void option(short, short);
 };
+
+void setcolor(short color);
+}

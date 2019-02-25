@@ -1,5 +1,7 @@
 #pragma once
 #include "Shape.h"
+namespace SVG {
+
 class Ellipse :
 	public Shape
 {
@@ -15,3 +17,4 @@ private:
 	point r;
 };
 
+}

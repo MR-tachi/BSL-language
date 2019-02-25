@@ -5,6 +5,8 @@
 #include "Polyline.h"
 #include "Text.h"
 
+namespace SVG {
+
 class Plot :
 	public Shape
 {
@@ -24,3 +26,4 @@ private:
 	
 };
 
+} 

@@ -3,7 +3,7 @@
 #include "SVGEXCEPT.h"
 
 using namespace std;
-
+using namespace SVG;
 Animation::Animation(string name)
 {
 	Name = name;

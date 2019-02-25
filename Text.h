@@ -1,5 +1,8 @@
 #pragma once
 #include "Shape.h"
+namespace SVG
+{
+
 class Text :
 	public Shape
 {
@@ -17,3 +20,6 @@ private:
 	std::string font;
 	std::string text;
 };
+
+
+}

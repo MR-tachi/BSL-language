@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
 
+namespace SVG
+{
+
 class Animation
 {
 public:
@@ -18,3 +21,4 @@ private:
 	std::string dur;
 	std::string repeat;
 };
+}

@@ -1,5 +1,7 @@
 #pragma once
 #include "Shape.h"
+namespace SVG {
+
 class Polyline :
 	public Shape
 {
@@ -14,3 +16,4 @@ private:
 	std::string Points;
 };
 
+}

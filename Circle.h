@@ -1,6 +1,8 @@
 #pragma once
 #include "Shape.h"
 #include <vector>
+namespace SVG {
+
 class Circle :
 	public Shape
 {
@@ -16,3 +18,4 @@ private:
 	point loc;
 	std::string r;
 };
+}

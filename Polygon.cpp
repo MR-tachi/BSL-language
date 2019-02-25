@@ -2,6 +2,8 @@
 #include <iostream>
 #include "SVGEXCEPT.h"
 
+using namespace SVG;
+
 Polygon::Polygon(std::string name):Shape()
 {
 	Name = name;

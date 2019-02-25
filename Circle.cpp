@@ -2,6 +2,7 @@
 #include <iostream>
 #include "SVGEXCEPT.h"
 
+using namespace SVG;
 Circle::Circle(std::string name):Shape()
 {
 	Name = name;

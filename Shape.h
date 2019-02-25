@@ -3,6 +3,9 @@
 #include <vector>
 #include "Animation.h"
 
+namespace SVG
+{
+
 class Shape
 {
 public:
@@ -33,3 +36,4 @@ struct point
 	std::string x;
 	std::string y;
 };
+}

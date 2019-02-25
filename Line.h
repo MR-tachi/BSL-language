@@ -1,5 +1,9 @@
 #pragma once
 #include "Shape.h"
+
+namespace SVG
+{
+
 class Line :
 	public Shape
 {
@@ -14,3 +18,5 @@ private:
 	point start;
 	point end;
 };
+
+}

@@ -2,7 +2,7 @@
 #include<iostream>
 #include "SVGEXCEPT.h"
 using namespace std;
-
+using namespace SVG;
 
 
 Text::Text(std::string name)

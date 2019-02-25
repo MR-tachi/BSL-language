@@ -1,6 +1,4 @@
 #include "BSL.h"
-#include <iostream>
-#include <string>
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Ellipse.h"
@@ -10,12 +8,19 @@
 #include "Text.h"
 #include "Plot.h"
 #include "SVGEXCEPT.h"
+#include <iostream>
+#include <string>
+#include <Windows.h>
+#include <direct.h>
 #include <fstream>
 
 using namespace std;
+using namespace SVG;
 
-BSL::BSL()
+BSL::BSL(short a, short b)
 {
+	bck = a;
+	font = b;
 }
 
 
@@ -25,6 +30,7 @@ BSL::~BSL()
 
 void BSL::start()
 {
+	option(bck, font);
 	while (true)
 	{
 		cout << "\n> ";
@@ -36,7 +42,8 @@ void BSL::start()
 		}
 		catch (exception & exc)
 		{
-			cerr << endl << "\a Exception Throwed !!!  : " << exc.what() << endl;
+			setcolor((bck * 16) + font -1);
+			cerr << endl << "\a Wrong way !! : " << exc.what() << endl;
 		}
 	}
 }
@@ -56,6 +63,7 @@ void BSL::ClearShape(string &Word)
 		while (!shapes.empty())
 		{
 			Shape * tmp = shapes.at(shapes.size() - 1);
+			setcolor(138);
 			cout << "shape " << tmp->getname() << " removed.\n";
 			delete tmp;
 			tmp = nullptr;
@@ -73,12 +81,13 @@ void BSL::ClearShape(string &Word)
 				if (shapes[i]->getname() == Word)
 				{
 					Shape * tmp = shapes[i];
+					setcolor(138);
 					cout << "shape " << tmp->getname() << " removed.\n";
 					delete tmp;
 					tmp = nullptr;
 					break;
 					if (i == shapes.size() - 1)
-						cout << "\nerror!! :" << Word << " not found.\n";
+						throw shape_notexist();
 				}
 		}
 		else
@@ -186,6 +195,10 @@ void BSL::checkcommand(std::string Word)
 			else throw undefined_command();
 		}
 	}
+	else if (Word == "-C" || Word == "-c")
+	{
+		system("cls");
+	}
 	else if (Word == "animation" || Word == "ANIMATION")
 	{
 		cin >> Word;
@@ -220,6 +233,27 @@ void BSL::checkcommand(std::string Word)
 		cin >> Word;
 		CreateShape(Word);
 	}
+	else if (Word == "option" || Word == "OPTION")
+	{
+		setcolor(15);
+		cout << "\n\n\n\n\n\t\tchoose font color\n\t\t\t\t";
+		for (int i = 0; i < 16; i++)
+		{
+			setcolor(i);
+			cout << i << " ";
+		}
+		cout << "  : ";
+		cin >> font;
+		cout << "\n\n\t\tchoose background color\n\t\t\t\t";
+		for (int i = 0; i < 16; i++)
+		{
+			setcolor((i * 16) + font);
+			cout << i << " ";
+		}
+		setcolor(15);
+		cout << "  : ";
+		cin >> bck;
+	}
 	else if (Word == "clear" || Word == "CLEAR")
 	{
 		cin >> Word;
@@ -245,8 +279,8 @@ void BSL::checkcommand(std::string Word)
 	}
 	else if (Word == "exit" || Word == "EXIT")
 	{
-		cout << "\n\nProgram has Ended\n";
-		_getchar_nolock();
+		cout << "\n\n  Program has Ended.\n\n    press any key to exit....";
+		_getwch();
 		exit(0);
 	}
 	else if (Word == "help" || Word == "HELP")
@@ -339,4 +373,126 @@ void BSL::SetAll(std::string &type)
 		throw undefined_command();
 	for(short i=0;i<shapes.size();i++)
 	shapes[i]->SetOption(type, option);//set option to all shapes
+}
+
+void SVG::setcolor(short color)
+{
+	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hcon, color);
+}
+
+void BSL::option(short a, short b)
+{
+	bck = a;
+	font = b;
+	char color[8];
+	color[0] = 'c';
+	color[1] = 'o';
+	color[2] = 'l';
+	color[3] = 'o';
+	color[4] = 'r';
+	color[5] = ' ';
+	switch (a)
+	{
+	case 0:
+		color[7] = '0';
+		break;
+	case 1:
+		color[7] = '1';
+		break;
+	case 2:
+		color[7] = '2';
+		break;
+	case 3:
+		color[7] = '3';
+		break;
+	case 4:
+		color[7] = '4';
+		break;
+	case 5:
+		color[7] = '5';
+		break;
+	case 6:
+		color[7] = '6';
+		break;
+	case 7:
+		color[7] = '7';
+		break;
+	case 8:
+		color[7] = '8';
+		break;
+	case 9:
+		color[7] = '9';
+		break;
+	case 10:
+		color[7] = 'A';
+		break;
+	case 11:
+		color[7] = 'B';
+		break;
+	case 12:
+		color[7] = 'C';
+		break;
+	case 13:
+		color[7] = 'D';
+		break;
+	case 14:
+		color[7] = 'E';
+		break;
+	case 15:
+		color[7] = 'F';
+		break;
+	}
+	switch (b)
+	{
+	case 0:
+		color[7] = '0';
+		break;
+	case 1:
+		color[7] = '1';
+		break;
+	case 2:
+		color[7] = '2';
+		break;
+	case 3:
+		color[7] = '3';
+		break;
+	case 4:
+		color[7] = '4';
+		break;
+	case 5:
+		color[7] = '5';
+		break;
+	case 6:
+		color[7] = '6';
+		break;
+	case 7:
+		color[7] = '7';
+		break;
+	case 8:
+		color[7] = '8';
+		break;
+	case 9:
+		color[7] = '9';
+		break;
+	case 10:
+		color[7]= 'A';
+		break;
+	case 11:
+		color[7] = 'B';
+		break;
+	case 12:
+		color[7] = 'C';
+		break;
+	case 13:
+		color[7] = 'D';
+		break;
+	case 14:
+		color[7] = 'E';
+		break;
+	case 15:
+		color[7] = 'F';
+		break;
+	}
+	system(color);
 }

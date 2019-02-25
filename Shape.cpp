@@ -3,6 +3,7 @@
 #include "SVGEXCEPT.h"
 
 using namespace std;
+using namespace SVG;
 
 Shape::Shape()
 {
