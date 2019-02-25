@@ -33,6 +33,7 @@ void BSL::start()
 	option(bck, font);
 	while (true)
 	{
+		setcolor((bck * 16) + font);
 		cout << "\n> ";
 		string Word;
 		cin >> Word;
@@ -42,8 +43,8 @@ void BSL::start()
 		}
 		catch (exception & exc)
 		{
-			setcolor((bck * 16) + font -1);
-			cerr << endl << "\a Wrong way !! : " << exc.what() << endl;
+			setcolor((bck * 16) + font + 1);
+			cerr << endl << "\a PROBLEM !! : " << exc.what() << endl;
 		}
 	}
 }
@@ -63,8 +64,8 @@ void BSL::ClearShape(string &Word)
 		while (!shapes.empty())
 		{
 			Shape * tmp = shapes.at(shapes.size() - 1);
-			setcolor(138);
-			cout << "shape " << tmp->getname() << " removed.\n";
+			setcolor((bck * 16) + font - 1);
+			cout << " Shape " << tmp->getname() << " removed.\n";
 			delete tmp;
 			tmp = nullptr;
 			shapes.pop_back();
@@ -81,14 +82,14 @@ void BSL::ClearShape(string &Word)
 				if (shapes[i]->getname() == Word)
 				{
 					Shape * tmp = shapes[i];
-					setcolor(138);
-					cout << "shape " << tmp->getname() << " removed.\n";
+					setcolor((bck * 16) + font - 1);
+					cout << " Shape " << tmp->getname() << " removed.\n";
 					delete tmp;
 					tmp = nullptr;
 					break;
-					if (i == shapes.size() - 1)
-						throw shape_notexist();
 				}
+				else if(i == shapes.size() - 1)
+					throw shape_notexist();
 		}
 		else
 		{
@@ -385,7 +386,7 @@ void BSL::option(short a, short b)
 {
 	bck = a;
 	font = b;
-	char color[8];
+	char color[9];
 	color[0] = 'c';
 	color[1] = 'o';
 	color[2] = 'l';
@@ -395,52 +396,52 @@ void BSL::option(short a, short b)
 	switch (a)
 	{
 	case 0:
-		color[7] = '0';
+		color[6] = '0';
 		break;
 	case 1:
-		color[7] = '1';
+		color[6] = '1';
 		break;
 	case 2:
-		color[7] = '2';
+		color[6] = '2';
 		break;
 	case 3:
-		color[7] = '3';
+		color[6] = '3';
 		break;
 	case 4:
-		color[7] = '4';
+		color[6] = '4';
 		break;
 	case 5:
-		color[7] = '5';
+		color[6] = '5';
 		break;
 	case 6:
-		color[7] = '6';
+		color[6] = '6';
 		break;
 	case 7:
-		color[7] = '7';
+		color[6] = '7';
 		break;
 	case 8:
-		color[7] = '8';
+		color[6] = '8';
 		break;
 	case 9:
-		color[7] = '9';
+		color[6] = '9';
 		break;
 	case 10:
-		color[7] = 'A';
+		color[6] = 'a';
 		break;
 	case 11:
-		color[7] = 'B';
+		color[6] = 'b';
 		break;
 	case 12:
-		color[7] = 'C';
+		color[6] = 'c';
 		break;
 	case 13:
-		color[7] = 'D';
+		color[6] = 'D';
 		break;
 	case 14:
-		color[7] = 'E';
+		color[6] = 'E';
 		break;
 	case 15:
-		color[7] = 'F';
+		color[6] = 'F';
 		break;
 	}
 	switch (b)
@@ -494,5 +495,6 @@ void BSL::option(short a, short b)
 		color[7] = 'F';
 		break;
 	}
+	color[8] = '\0';
 	system(color);
 }
