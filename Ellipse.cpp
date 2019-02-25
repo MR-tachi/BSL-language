@@ -1,6 +1,6 @@
 #include "Ellipse.h"
 #include <iostream>
-
+#include "SVGEXCEPT.h"
 
 Ellipse::Ellipse(std::string name) :Shape()
 {
@@ -49,11 +49,13 @@ void Ellipse::SetOption(std::string name)
 	{
 		std::string option;//count option
 		getline(std::cin, tmpname, '(');
-		if (tmpname != " ") {}
+		if (tmpname != " ")
+			throw undefined_command();
 		//theow except cmmand
 		getline(std::cin, option, ')');
 		getline(std::cin, tmpname);
-		if (tmpname != "") {}
+		if (tmpname != "") 
+			throw undefined_command();
 		//throw excp command
 		if (name == "rx")
 			r.x = option;
@@ -71,9 +73,10 @@ void Ellipse::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);//.substr(location + 2, std::string::npos));
+			Shape::SetAnim(name);
 		}
-		else {}
+		else 
+			throw undefined_command();
 		//throw excp
 
 	}

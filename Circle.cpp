@@ -1,6 +1,6 @@
 #include "Circle.h"
 #include <iostream>
-
+#include "SVGEXCEPT.h"
 
 Circle::Circle(std::string name):Shape()
 {
@@ -48,11 +48,13 @@ void Circle::SetOption(std::string name)
 	{
 		std::string option;//count option
 		getline(std::cin, tmpname, '(');
-		if (tmpname != " ") {}
+		if (tmpname != " ") 
+			throw undefined_command();
 		//theow except cmmand
 		getline(std::cin, option, ')');
 		getline(std::cin, tmpname);
-		if (tmpname != "") {}
+		if (tmpname != "") 
+			throw undefined_command();
 		//throw excp command
 		if (name == "r")
 			r = option;
@@ -68,9 +70,9 @@ void Circle::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);// .substr(location + 2, std::string::npos));
-		}
-		else {}
+			Shape::SetAnim(name);		}
+		else 
+			throw undefined_command();
 		//throw excp
 
 	}
@@ -85,11 +87,13 @@ void Circle::GetOption(std::string name)
 	{
 		std::string option;//count option
 		getline(std::cin, tmpname, '(');
-		if (tmpname != " ") {}
+		if (tmpname != " ") 
+			throw undefined_command();
 		//theow except cmmand
 		getline(std::cin, option, ')');
 		getline(std::cin, tmpname);
-		if (tmpname != "") {}
+		if (tmpname != "") 
+			throw undefined_command();
 		//throw excp command
 		if (name == "r")
 			std::cout << std::endl << r;
@@ -107,8 +111,8 @@ void Circle::GetOption(std::string name)
 		{
 			Shape::SetAnim(name.substr(location + 2, std::string::npos));
 		}
-		else {}
-		//throw excp
+		else 
+			throw undefined_command();
 
 	}
 }

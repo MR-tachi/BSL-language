@@ -1,5 +1,6 @@
 #include "Line.h"
 #include<iostream>
+#include "SVGEXCEPT.h"
 
 using namespace std;
 
@@ -52,12 +53,12 @@ void Line::SetOption(string name)
 	{
 		string option;//count option
 		getline(cin, tmpname, '(');
-		if (tmpname != " ") {}
-			//theow except cmmand
+		if (tmpname != " ") 
+			throw undefined_command();
 		getline(cin, option, ')');
 		getline(std::cin, tmpname);
-		if (tmpname != "") {}
-			//throw excp command
+		if (tmpname != "") 
+			throw undefined_command();
 		if (name == "x1")
 			start.x = option;
 		else if (name == "y1")
@@ -74,10 +75,10 @@ void Line::SetOption(string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);// .substr(location + 2, std::string::npos));
+			Shape::SetAnim(name);
 		}
-		else {}
-		//throw excp
+		else
+			throw undefined_command();
 
 	}
 }

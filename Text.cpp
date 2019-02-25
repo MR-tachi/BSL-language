@@ -1,6 +1,6 @@
 #include "Text.h"
 #include<iostream>
-
+#include "SVGEXCEPT.h"
 using namespace std;
 
 
@@ -80,7 +80,8 @@ void Text::SetOption(std::string name)
 		{
 			Shape::SetAnim(name.substr(location + 2, std::string::npos));
 		}
-		else {}
+		else 
+			throw undefined_command();
 		//throw excp
 
 	}
@@ -95,11 +96,13 @@ void Text::GetOption(std::string name)
 	{
 		string option;//count option
 		getline(cin, tmpname, '(');
-		if (tmpname != " ") {}
+		if (tmpname != " ") 
+			throw undefined_command();
 		//theow except cmmand
 		getline(cin, option, ')');
 		getline(std::cin, tmpname);
-		if (tmpname != "") {}
+		if (tmpname != "") 
+			throw undefined_command();
 		//throw excp command
 		if (name == "x")
 			loc.x = option;
@@ -119,9 +122,10 @@ void Text::GetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);// .substr(location + 2, std::string::npos));
+			Shape::SetAnim(name);
 		}
-		else {}
+		else 
+			throw undefined_command();
 		//throw excp
 
 	}

@@ -1,6 +1,6 @@
 #include "Polygon.h"
 #include <iostream>
-
+#include "SVGEXCEPT.h"
 
 Polygon::Polygon(std::string name):Shape()
 {
@@ -21,14 +21,6 @@ std::string Polygon::Export()
 {
 	std::string output = "\n  <polygon points=\"";
 	output += Points;
-	/*for (short i = 0; i < Points.size(); i++)
-	{
-		output += Points[i]->x;
-		output += ",";
-		output += Points[i]->y;
-		if (i != Points.size() - 1)
-			output += " ";
-	}*/
 	output += "\" stroke=\"";
 	output += stroke;
 	output += "\" fill=\"";
@@ -51,37 +43,19 @@ void Polygon::SetOption(std::string name)
 	location = name.find('-');
 	if (location == std::string::npos) // chek anim or no if flase then its animate
 	{
-			std::string option;//count option
-			getline(std::cin, tmpname, '(');
-			if (tmpname != " ") {}
-			//throw except cmmand
-			getline(std::cin, option, ')');
-			getline(std::cin, tmpname);
-			if (tmpname != "") {}
-			//throw excp command
+		std::string option;//count option
+		getline(std::cin, tmpname, '(');
+		if (tmpname != " ") 
+			throw undefined_command();
+		//throw except cmmand
+		getline(std::cin, option, ')');
+		getline(std::cin, tmpname);
+		if (tmpname != "") 
+			throw undefined_command();
+		//throw excp command
 		if (name == "points")
-		{
 			Points = option;
-
-			/*bool flag = true;
-			while (flag == true)
-			{
-				point* tmp = new point;
-				getline(std::cin, tmp->x, ',');
-				getline(std::cin, tmp->y, ' ');
-				if (tmp->y.back() == ')')
-				{
-					flag = false;
-					tmp->y.pop_back();
-				}
-				Points.push_back(tmp);
-			}*/
-		}
-		//else
-		//{
-
-			else Shape::SetOption(name, option);
-		//}
+		else Shape::SetOption(name, option);
 	}
 	else
 	{
@@ -89,9 +63,10 @@ void Polygon::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);// .substr(location + 2, std::string::npos));
+			Shape::SetAnim(name);
 		}
-		else {}
+		else 
+			throw undefined_command();
 		//throw excp
 
 	}

@@ -1,5 +1,6 @@
 #include "Animation.h"
 #include <iostream>
+#include "SVGEXCEPT.h"
 
 using namespace std;
 
@@ -41,12 +42,12 @@ void Animation::SetOption(string option)
 	string count;//count option
 	string tmp;//for check commands
 	getline(std::cin, tmp, '(');
-	if (tmp != " ") {}
-	//theow except cmmand
+	if (tmp != " ") 
+		throw undefined_command();
 	getline(std::cin, count, ')');
 	getline(std::cin, tmp);
-	if (tmp != "") {}
-	//throw excp command
+	if (tmp != "") 
+		throw undefined_command();
 	if (option == "dur")
 		dur = count;
 	else if (option == "attributeType")
@@ -59,6 +60,6 @@ void Animation::SetOption(string option)
 		to = count;
 	else if (option == "repeatCount")
 		repeat = count;
-	else {}
-		//throw exp command
+	else 
+		throw undefined_command();
 }

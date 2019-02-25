@@ -1,6 +1,6 @@
 #include "Rectangle.h"
 #include<iostream>
-
+#include "SVGEXCEPT.h"
 
 Rectangle::Rectangle(std::string name) :Shape()
 {
@@ -15,7 +15,7 @@ Rectangle::~Rectangle()
 void Rectangle::information()
 {
 	std::cout << "name: " << Name << "  type:  Rectangle\n";
-}
+}	
 
 std::string Rectangle::Export()
 {
@@ -55,12 +55,12 @@ void Rectangle::SetOption(std::string name)
 	{
 		std::string option;//count option
 		getline(std::cin, tmpname, '(');
-		if (tmpname != " ") {}
-		//theow except cmmand
+		if (tmpname != " ") 
+			throw undefined_command();
 		getline(std::cin, option, ')');
 		getline(std::cin, tmpname);
-		if (tmpname != "") {}
-		//throw excp command
+		if (tmpname != "") 
+			throw undefined_command();
 		if (name == "x")
 			loc.x = option;
 		else if (name == "y")
@@ -81,10 +81,10 @@ void Rectangle::SetOption(std::string name)
 
 		if (name[location + 1] == '>')
 		{
-			Shape::SetAnim(name);// .substr(location + 2, std::string::npos));
+			Shape::SetAnim(name);
 		}
-		else {}
-		//throw excp
+		else 
+			throw undefined_command();
 
 	}
 }
@@ -92,7 +92,3 @@ void Rectangle::SetOption(std::string name)
 void Rectangle::GetOption(std::string)
 {
 }
-
-//void Rectangle::SetAll(std::string type, std::string option)
-//{
-//}

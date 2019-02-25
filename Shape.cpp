@@ -1,5 +1,6 @@
 #include "Shape.h"
 #include <iostream>
+#include "SVGEXCEPT.h"
 
 using namespace std;
 
@@ -25,15 +26,15 @@ void Shape::ShowAnimates()
 			if (i != Anim.size() - 1)
 				cout << "\n     ";
 		}
-		else if (i == Anim.size()) {}
-			//throw excp not exist
+		else if (i == Anim.size())
+			throw undefined_command();
 }
 
 void Shape::CreateAnimate(string name)
 {
 	for(short i=0;i<Anim.size();i++)
-		if (name == Anim[i]->getname()) {}
-			//throw excp repeatly name
+		if (name == Anim[i]->getname()) 
+			throw undefined_command();
 	Anim.push_back(new Animation(name));
 }
 
@@ -48,8 +49,8 @@ void Shape::ClearAnim(std::string animname)
 			delete tmp;
 			tmp = nullptr;
 		}
-		else if(i == Anim.size()){}
-			//throw excp not exist
+		else if(i == Anim.size())
+			throw undefined_command();
 		
 	}
 }
@@ -64,8 +65,8 @@ void Shape::SetOption(string name, string option)
 		stroke = option;
 	else if (name == "fill")
 		fill = option;
-	else {}
-		//throw excep command
+	else 
+		throw undefined_command();
 }
 
 
@@ -73,10 +74,10 @@ void Shape::SetAnim(string animoption)
 {
 	int loc;
 	loc = animoption.find('-');
-	if (loc == string::npos) {}
-		//throw excp command
-	if (animoption[loc+1] != '>') {}
-		//throw excp command
+	if (loc == string::npos)
+		throw undefined_command();
+	if (animoption[loc+1] != '>') 
+		throw undefined_command();
 	string animname = animoption.substr(0, loc);
 	for (short i = 0; i < Anim.size(); i++)
 	{
@@ -84,8 +85,8 @@ void Shape::SetAnim(string animoption)
 		{
 			Anim[i]->SetOption(animoption.substr(loc + 2, std::string::npos));
 		}
-		{}
-		//throw excp not exist
+		else if (i == Anim.size() - 1)
+			throw shape_notexist();
 	}
 }
 
@@ -99,6 +100,6 @@ void Shape::GetOption(std::string name, std::string option)
 		std::cout << std::endl << stroke;
 	else if (name == "fill")
 		std::cout << std::endl << fill;
-	else {}
-	//throw excep command
+	else 
+		throw undefined_command();
 }
