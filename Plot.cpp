@@ -1,6 +1,10 @@
 #include "Plot.h"
 #include <iostream>
 #include <fstream>
+#include "Rectangle.h"
+#include "Line.h"
+#include "Polyline.h"
+#include "Text.h"
 #include "SVGEXCEPT.h"
 using namespace std;
 using namespace SVG;
@@ -21,7 +25,10 @@ void Plot::information()
 std::string Plot::Export()
 {
 	//open data file and read from file
-	ifstream input; 
+	ifstream input;
+	string address = "data//";
+	address += data;
+	input.open(address);
 
 	//check type plot
 
@@ -55,6 +62,8 @@ void Plot::SetOption(istream &input, string &name)
 		title = option;
 	else if (name == "type")
 		type = option;
+	else if (name == "animated")
+		anim = option;
 	else
 		throw undefined_command();
 
