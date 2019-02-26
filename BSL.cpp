@@ -44,6 +44,9 @@ void BSL::start()
 				Loadfile();
 			else
 				checkcommand(cin, Word);
+			setcolor((bck * 16) + font - 1);
+			cout << "\n OK";
+
 		}
 		catch (exception & exc)
 		{
@@ -124,12 +127,13 @@ void BSL::ShowHelp()
 	cout << "\n> set \"shape-name\"->\'x\' - \'y\' - \'height\' - \'fill\'\tset option of shape";
 	cout << "\n> get \"shape-name\"->\'x\' - \'y\' - \'height\' - \'fill\'\tget option of shape";
 	cout << "\n> export (\"file-name.svg\")\t\t\t\texport the picture to export folder\n\n";
+	cout << "\n> option\t\t\t\t\t\tchange program color";
 	cout << "\n> animation \"shape-name\" \"animation name\"\t\tcreate a animation for shape";
 	cout << "\n   > set \"shape-name\"->\"animation-name\"->\'dur\' - \'attributename\'";
 	cout << "- \'from\' - \'to\' - \'repeatcount\'\tset option of animation";
 	cout << "\n   > clear \"shape-name\"->\"animation-name\"\t\tclear the animation";
-	cout << "\n   > list animate \"shape-name\"\t\t\t\tshow all animations of shape\n\n";
-	cout << "---------------------------------------------------------------------------------------------------------";
+	cout << "\n   > list animate \"shape-name\"\t\t\t\tshow all animations of shape";
+	cout << "\n\n---------------------------------------------------------------------------------------------------------";
 	cout << "\n\n  Shape types:\n\tcircle - rectangle - ellipse - line - polygon - polyline - plot - text\n\n";
 	cout << "---------------------------------------------------------------------------------------------------------";
 }
