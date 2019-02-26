@@ -280,13 +280,13 @@ void BSL::checkcommand(std::istream &input,string Word)
 	}
 	else if (Word == "option" || Word == "OPTION")
 	{
-		setcolor(15);
-		cout << "\n\n\n\n\n\t\tchoose font color\n\t\t\t\t";
+		cout << "\n\n\t\tchoose font color\n\t\t\t\t";
 		for (int i = 0; i < 16; i++)
 		{
 			setcolor(i);
 			cout << i << " ";
 		}
+		setcolor(font);
 		cout << "  : ";
 		input >> font;
 		cout << "\n\n\t\tchoose background color\n\t\t\t\t";
@@ -295,9 +295,9 @@ void BSL::checkcommand(std::istream &input,string Word)
 			setcolor((i * 16) + font);
 			cout << i << " ";
 		}
-		setcolor(15);
 		cout << "  : ";
 		input >> bck;
+		option(bck, font);
 	}
 	else if (Word == "clear" || Word == "CLEAR")
 	{

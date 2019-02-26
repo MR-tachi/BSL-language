@@ -21,7 +21,7 @@ void Plot::information()
 std::string Plot::Export()
 {
 	//open data file and read from file
-	ifstream input;
+	ifstream input; 
 
 	//check type plot
 
