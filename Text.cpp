@@ -10,6 +10,14 @@ Text::Text(std::string name)
 	Name = name;
 }
 
+SVG::Text::Text(std::string x, std::string y, std::string s, std::string t)
+{
+	loc.x = x;
+	loc.y = y;
+	size = s;
+	text = t;
+}
+
 Text::~Text()
 {
 }
@@ -66,9 +74,9 @@ void Text::SetOption(istream &input, string &name)
 			loc.x = option;
 		else if (name == "y")
 			loc.y = option;
-		else if (name == "font-size")
+		else if (name == "fsize")
 			size = option;
-		else if (name == "font-family")
+		else if (name == "ffamily")
 			font = option;
 		else if (name == "text")
 			text = option;

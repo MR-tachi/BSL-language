@@ -10,6 +10,13 @@ Polyline::Polyline(std::string name) :Shape()
 	Name = name;
 }
 
+SVG::Polyline::Polyline(std::string p, std::string f, std::string s)
+{
+	Points = p;
+	fill = f;
+	stroke = s;
+}
+
 
 Polyline::~Polyline()
 {

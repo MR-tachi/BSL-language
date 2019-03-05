@@ -9,6 +9,15 @@ Animation::Animation(string name)
 	Name = name;
 }
 
+SVG::Animation::Animation(std::string f, std::string t, std::string d, std::string b, std::string a)
+{
+	from = f;
+	to = t;
+	dur = d;
+	begin = b;
+	att_name = a;
+}
+
 
 Animation::~Animation()
 {
@@ -24,6 +33,8 @@ string Animation::Export()
 	output += from;
 	output += "\" to=\"";
 	output += to;
+	output += "\" begin=\"";
+	output += begin;
 	output += "\"\n\tdur=\"";
 	output += dur;
 	output += "\" repeatCount=\"";
@@ -60,6 +71,8 @@ void Animation::SetOption(istream &input,string &option)
 		to = count;
 	else if (option == "repeatCount")
 		repeat = count;
+	else if (option == "begin")
+		begin = count;
 	else 
 		throw undefined_command();
 }

@@ -9,6 +9,14 @@ Line::Line(string name) :Shape()
 {
 	Name = name;
 }
+Line::Line(string x1, string y1, string x2, string y2 , string s) :Shape()
+{
+	start.x = x1;
+	start.y = y1;
+	end.x = x2;
+	end.y = y2;
+	stroke = s;
+}
 
 
 Line::~Line()
@@ -27,7 +35,7 @@ string Line::Export()
 	output += "\" y1=\"";
 	output += start.y;
 	output += "\" x2=\"";
-	output += end.y;
+	output += end.x;
 	output += "\" y2=\"";
 	output += end.y;
 	output += "\" stroke=\"";

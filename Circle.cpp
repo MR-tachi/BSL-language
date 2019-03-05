@@ -10,6 +10,13 @@ Circle::Circle(std::string name):Shape()
 	Name = name;
 }
 
+SVG::Circle::Circle(std::string x, std::string y, std::string _r)
+{
+	loc.x = x;
+	loc.y = y;
+	r = _r;
+}
+
 
 Circle::~Circle(){}
 

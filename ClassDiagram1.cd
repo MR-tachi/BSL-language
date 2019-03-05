@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SVG::Animation" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAKAAAAACAAAgAgABAwAAAAAAwAAAAAAAAAABAE=</HashCode>
+      <FileName>Animation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::BSL" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAYACAAgAAAABASoQAhQAAAABAAAAAAAAAAAEAAAZQA=</HashCode>
+      <FileName>BSL.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::Circle" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABgAAACAAAgADAAAAAgAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Circle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::Ellipse" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACABAAAACAAAgADAAAAAAAAAAAAQABAAAAAAA=</HashCode>
+      <FileName>Ellipse.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::Line" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAACABAAAACgAAgABAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Line.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::Plot" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAQBAAAACAAAgADAAAAAABAAAAAQAUAIAAAAA=</HashCode>
+      <FileName>Plot.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::Polygon" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAABAAgACAAAgABAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Polygon.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::Polyline" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABABAAgACAAAgCBAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Polyline.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::Rectangle" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAABAAAASAQAgADAAAAAAgAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Rectangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::Shape">
+    <Position X="8.75" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAABAAAACAAAhABAQBACABAAAIAAgAgAEABRA=</HashCode>
+      <FileName>Shape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::undefined_command" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SVGEXCEPT.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::shape_notexist" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SVGEXCEPT.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::undefined_shape" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SVGEXCEPT.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::repeatly_name" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SVGEXCEPT.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::set_frame" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SVGEXCEPT.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::file_opening" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SVGEXCEPT.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVG::Text" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAEAAAABAAAACAAIgADAAAAAAAAAAIAAAACAAAAAA=</HashCode>
+      <FileName>Text.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="SVG::point" Collapsed="true">
+    <Position X="18.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Shape.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

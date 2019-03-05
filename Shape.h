@@ -16,6 +16,7 @@ public:
 	std::string getname();
 	void ShowAnimates();
 	void CreateAnimate(std::string);
+	void CreateAnimate(std::string, std::string, std::string, std::string , std::string);
 	virtual void SetOption(std::istream&,std::string&) = 0;
 	virtual void GetOption(std::string) = 0;
 	void ClearAnim(std::string);

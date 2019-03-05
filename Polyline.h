@@ -7,6 +7,7 @@ class Polyline :
 {
 public:
 	Polyline(std::string);
+	Polyline(std::string p , std::string f, std::string s);
 	~Polyline();
 	void information();
 	std::string Export();

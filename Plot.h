@@ -20,11 +20,12 @@ public:
 
 private:
 	point loc;
+	point hw;
 	std::string data;
 	std::string type;
 	std::string title;
 	std::string anim;
-	std::vector<Shape*> Shapes;
+	std::vector<point*> points;
 };
 
 } 

@@ -8,6 +8,7 @@ class Animation
 {
 public:
 	Animation(std::string);
+	Animation(std::string , std::string, std::string, std::string, std::string);
 	~Animation();
 	std::string Export();
 	std::string getname();
@@ -20,5 +21,7 @@ private:
 	std::string to;
 	std::string dur;
 	std::string repeat;
+
+	std::string begin = "0s";
 };
 }

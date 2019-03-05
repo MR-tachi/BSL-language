@@ -9,6 +9,7 @@ class Circle :
 public:
 
 	Circle(std::string);
+	Circle(std::string x ,std::string y , std::string _r);
 	~Circle();
 	void information() ;
 	std::string Export();

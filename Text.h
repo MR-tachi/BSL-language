@@ -8,6 +8,7 @@ class Text :
 {
 public:
 	Text(std::string);
+	Text(std::string x, std::string y, std::string s, std::string t);
 	~Text();
 	void information();
 	std::string Export();

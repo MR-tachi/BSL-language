@@ -39,6 +39,11 @@ void Shape::CreateAnimate(string name)
 	Anim.push_back(new Animation(name));
 }
 
+void Shape::CreateAnimate(std::string f, std::string t, std::string d, std::string b, std::string a)
+{
+	Anim.push_back(new Animation(f, t, d, b, a));
+}
+
 void Shape::ClearAnim(std::string animname)
 {
 	for (short i=0;i< Anim.size(); i++)

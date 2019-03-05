@@ -340,10 +340,8 @@ void BSL::ExportFile(string& filename)
 {
 	string output;
 	output += "<?xml version=\"1.0\"?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\"\n\"http://www.w3.org/Graphics/SVG/1.1DTD/svg11.dtd\">";
-	output += "\n<svg width = \"";
-	output += width;
-	output += "\" height = \"";
-	output += height;
+	output += "\n<svg viewBox=\"0 0 ";
+	output += width + " " + height;
 	output += "\" version = \"1.1\"\n\txmlns = \"http://www.w3.org/2000/svg\">";
 
 	for (short i = 0; i < shapes.size(); i++)
@@ -351,7 +349,7 @@ void BSL::ExportFile(string& filename)
 
 	output += "\n</svg>\n";
 	filename.insert(0, "Export//");
-	ofstream file(filename, ios::out);
+	ofstream file(filename, ios::trunc);
 	if (!file)
 	{
 		cout << "";

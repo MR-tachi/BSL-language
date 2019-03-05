@@ -9,6 +9,7 @@ class Line :
 {
 public:
 	Line(std::string);
+	Line(std::string x1, std::string y1, std::string x2, std::string y2 , std::string s);
 	~Line();
 	void information();
 	std::string Export();
